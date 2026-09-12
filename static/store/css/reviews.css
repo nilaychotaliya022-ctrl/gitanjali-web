@@ -1,0 +1,16 @@
+.reviews-layout{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start;margin-top:43px}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.review-state{grid-column:1/-1;min-height:245px;display:grid;place-items:center;padding:30px;border:1px dashed var(--line);border-radius:11px;color:var(--muted);font-size:13px;line-height:1.6;text-align:center}
+.review-form-card{padding:27px;border:1px solid var(--line);border-radius:11px;background:#fff;box-shadow:var(--shadow)}
+.review-form-card h3{margin-top:12px;font:27px var(--serif);letter-spacing:-.04em}
+.review-form-card>.muted-copy{margin-top:9px;font-size:12px;line-height:1.6}
+.review-form{display:grid;gap:16px;margin-top:22px}
+.review-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.review-form .field{display:flex;flex-direction:column;gap:7px}
+.review-form .field label{font:9px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.review-form input,.review-form select,.review-form textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:5px;background:#fff;color:var(--ink);font:12px var(--sans);outline:none}
+.review-form textarea{min-height:110px;resize:vertical}
+.review-form input:focus,.review-form select:focus,.review-form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(20,113,171,.1)}
+.review-form ul.errorlist{margin:0;color:#9a2f2f;font-size:11px;list-style:none;padding:0}
+@media(max-width:900px){.reviews-layout{grid-template-columns:1fr}}
+@media(max-width:640px){.reviews-grid{grid-template-columns:1fr}.review-form-row{grid-template-columns:1fr}}

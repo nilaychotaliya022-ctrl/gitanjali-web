@@ -1,0 +1,260 @@
+{% extends "store/base.html" %}
+{% block title %}Gitanjali Stationery Store — The right tools for good work{% endblock %}
+
+{% block content %}
+<main>
+
+  <section class="hero">
+    <div class="container-wide hero-grid">
+      <div>
+        <span class="eyebrow">Your local supply desk</span>
+
+        <h1 class="hero-title">
+          The right tools<br>
+          for <em>good work.</em>
+        </h1>
+
+        <p class="hero-copy">
+          From the first school list to the final office file, Gitanjali keeps
+          your everyday essentials close, clear, and ready to go.
+        </p>
+
+        <div class="hero-actions">
+          <a href="{% url 'stationery' %}" class="btn btn-primary">
+            Browse stationery <span>→</span>
+          </a>
+
+          <a href="{% url 'contact' %}" class="btn btn-ghost">
+            Tell us what you need
+          </a>
+        </div>
+
+        <div class="hero-proof">
+          <div class="proof-dots">
+            <span>A</span>
+            <span>R</span>
+            <span>S</span>
+          </div>
+
+          <span>
+            Trusted by schools, offices, and families nearby
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="Illustration of stationery, paper, and a custom stamp">
+        <div class="art-shadow"></div>
+
+        <div class="paper-stack">
+          <div class="paper back"></div>
+          <div class="paper mid"></div>
+          <div class="paper front"></div>
+          <div class="paper-clip"></div>
+        </div>
+
+        <div class="ink-stamp">
+          <strong>READY</strong>
+          FOR<br>
+          BUSINESS
+        </div>
+
+        <div class="float-note">
+          <span>COUNTER NOTE 04</span>
+          Ask us to make it<br>
+          easy for your team.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="trust-strip">
+    <div class="container-wide trust-inner">
+
+      <div class="trust-lead">
+        One dependable place.<br>
+        Three ways to get sorted.
+      </div>
+
+      <div class="trust-item">
+        <strong>Walk in</strong>
+        Find essentials without the hunt.
+      </div>
+
+      <div class="trust-item">
+        <strong>Send a brief</strong>
+        Get a clear print quote.
+      </div>
+
+      <div class="trust-item">
+        <strong>Make it yours</strong>
+        Stamp your identity in ink.
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container-wide">
+
+      <span class="eyebrow">What we keep ready</span>
+
+      <div class="section-intro">
+        <h2 class="section-heading">
+          Small things.<br>
+          <em>Big relief.</em>
+        </h2>
+
+        <p class="muted-copy">
+          A good stationery counter anticipates the next task.
+          Ours is organised around the way real people work.
+        </p>
+      </div>
+
+      <div class="service-grid">
+
+        <article class="service-card primary-card">
+          <span class="card-number">01 / SHOP</span>
+
+          <div class="service-icon">▣</div>
+
+          <h3>
+            Stationery that earns its drawer space
+          </h3>
+
+          <p>
+            Pens that start, paper that feeds through, files that last.
+            Choose from the everyday essentials we know people come back for.
+          </p>
+
+          <a href="{% url 'stationery' %}" class="card-link">
+            Explore →
+          </a>
+        </article>
+
+
+        <article class="service-card">
+          <span class="card-number">02 / MAKE</span>
+
+          <div class="service-icon">▤</div>
+
+          <h3>
+            Print work with a steady hand
+          </h3>
+
+          <p>
+            Menus, reports, invitations, project sheets and more.
+            Send the job; we will help make the finish right.
+          </p>
+
+          <a href="{% url 'printing' %}" class="card-link">
+            Explore →
+          </a>
+        </article>
+
+
+        <article class="service-card">
+          <span class="card-number">03 / MARK</span>
+
+          <div class="service-icon">◉</div>
+
+          <h3>
+            Stamps with your name on them
+          </h3>
+
+          <p>
+            Office seals, address stamps, date stamps and the small details
+            that make paperwork official.
+          </p>
+
+          <a href="{% url 'rubber_stamps' %}" class="card-link">
+            Explore →
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-tight band-blue">
+    <div class="container-wide featured-layout">
+
+      <div>
+        <span class="eyebrow accent-text">
+          Not sure where to start?
+        </span>
+
+        <h2 class="section-heading white">
+          Bring us the<br>
+          <em>rough list.</em>
+        </h2>
+
+        <p class="muted-copy white-muted">
+          A photo, a scribble, a deadline, a budget — that is enough.
+          We will turn it into a clear next step.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn btn-accent">
+          Start with a quick brief <span>→</span>
+        </a>
+      </div>
+
+
+      <div class="number-list light-list">
+
+        <div>
+          <b>01</b>
+          <span>
+            Tell us what you are making, ordering, or preparing.
+          </span>
+        </div>
+
+        <div>
+          <b>02</b>
+          <span>
+            We suggest the practical option, not the complicated one.
+          </span>
+        </div>
+
+        <div>
+          <b>03</b>
+          <span>
+            You get a clear quote and a realistic time to collect.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Reviews section removed from homepage -->
+
+
+  <section class="section">
+    <div class="container-wide">
+
+      <div class="cta-panel">
+
+        <div>
+          <h2>Have a list to sort?</h2>
+
+          <p>
+            We answer quickly, with useful questions and no pressure.
+          </p>
+        </div>
+
+        <a href="{% url 'contact' %}" class="btn btn-light">
+          Contact the counter ↗
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+{% endblock %}

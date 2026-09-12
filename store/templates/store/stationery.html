@@ -1,0 +1,597 @@
+
+{% extends "store/base.html" %}
+{% load static %}
+
+
+{% block title %}
+Stationery Products | Gitanjali Stationery & Rubber Stamp
+{% endblock %}
+
+{% block description %}
+Shop stationery products from Gitanjali Stationery & Rubber Stamp in Rajkot. School stationery, office supplies, notebooks, files, writing products, paper, art & craft and more.
+{% endblock %}
+
+
+{% block extra_css %}
+
+<link rel="stylesheet"
+      href="{% static 'store/css/stationery.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+<main class="stationery-page">
+
+
+  <!-- =========================================
+       HERO
+  ========================================== -->
+
+  <section class="stationery-hero">
+
+    <div class="container-wide stationery-hero-grid">
+
+
+      <div class="stationery-hero-content">
+
+        <span class="stationery-eyebrow">
+          GITANJALI STATIONERY
+        </span>
+
+        <h1>
+          Everything your
+          <span>desk needs.</span>
+        </h1>
+
+        <p>
+          From school essentials to professional office supplies,
+          find practical stationery for everyday work, study and creativity.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="#products"
+            class="stationery-btn stationery-btn-primary">
+            Explore products
+            <span>↓</span>
+          </a>
+
+          <a
+            href="{% url 'contact' %}"
+            class="stationery-btn stationery-btn-light">
+            Bulk enquiry
+            <span>↗</span>
+          </a>
+
+        </div>
+
+
+        <div class="hero-trust">
+
+          <div>
+            <strong>9+</strong>
+            <span>Categories</span>
+          </div>
+
+          <div>
+            <strong>6+</strong>
+            <span>Popular brands</span>
+          </div>
+
+          <div>
+            <strong>Rajkot</strong>
+            <span>Local service</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="stationery-hero-visual">
+
+        <div class="hero-circle hero-circle-one"></div>
+        <div class="hero-circle hero-circle-two"></div>
+
+        <div class="hero-product-card">
+
+          <div class="hero-card-top">
+            <span>GITANJALI</span>
+            <span>STATIONERY</span>
+          </div>
+
+          <div class="hero-paper-stack">
+
+            <div class="paper paper-back"></div>
+
+            <div class="paper paper-middle"></div>
+
+            <div class="paper paper-front">
+
+              <div class="paper-lines"></div>
+
+              <strong>
+                WRITE.
+              </strong>
+
+              <span>
+                CREATE.
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="hero-card-bottom">
+            <span>School</span>
+            <span>Office</span>
+            <span>Art</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       BRANDS
+  ========================================== -->
+
+  <section class="brands-section">
+
+    <div class="container-wide">
+
+      <div class="section-heading centered">
+
+        <span class="section-label">
+          BRANDS YOU KNOW
+        </span>
+
+        <h2>
+          Trusted stationery brands
+        </h2>
+
+        <p>
+          Quality products from some of the most familiar
+          names in stationery.
+        </p>
+
+      </div>
+
+
+      <div class="brand-grid">
+
+        {% for brand in brands %}
+
+          <button
+            type="button"
+            class="brand-card"
+            data-brand="{{ brand|lower }}">
+
+            <span class="brand-dot"></span>
+
+            <strong>
+              {{ brand }}
+            </strong>
+
+            <small>
+              View products
+            </small>
+
+          </button>
+
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       PRODUCTS
+  ========================================== -->
+
+  <section
+    class="products-section"
+    id="products">
+
+    <div class="container-wide">
+
+
+      <div class="products-header">
+
+        <div class="section-heading">
+
+          <span class="section-label">
+            OUR COLLECTION
+          </span>
+
+          <h2>
+            Stationery for every task
+          </h2>
+
+          <p>
+            Browse our collection and add the products
+            you are interested in to your request.
+          </p>
+
+        </div>
+
+
+        <div class="request-box">
+
+          <span class="request-icon">
+            ✓
+          </span>
+
+          <div>
+            <small>
+              Your request
+            </small>
+
+            <strong>
+              <span data-request-count>0</span>
+              items
+            </strong>
+          </div>
+
+          <a href="{% url 'contact' %}">
+            Send enquiry →
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- SEARCH -->
+      <div class="stationery-toolbar">
+
+
+        <div class="search-wrapper">
+
+          <span class="search-icon">
+            ⌕
+          </span>
+
+          <input
+            type="search"
+            id="product-search"
+            placeholder="Search notebooks, pens, files..."
+            autocomplete="off">
+
+          <button
+            type="button"
+            class="clear-search"
+            id="clear-search"
+            aria-label="Clear search">
+            ×
+          </button>
+
+        </div>
+
+
+        <!-- CATEGORY FILTER -->
+        <div class="filter-area">
+
+          <span class="filter-title">
+            Category
+          </span>
+
+          <div class="filter-list">
+
+            <button
+              type="button"
+              class="filter-chip active"
+              data-filter="all">
+              All
+            </button>
+
+            {% for category in categories %}
+
+              <button
+                type="button"
+                class="filter-chip"
+                data-filter="{{ category|lower }}">
+                {{ category }}
+              </button>
+
+            {% endfor %}
+
+          </div>
+
+        </div>
+
+
+        <!-- RESET -->
+        <button
+          type="button"
+          class="reset-filters"
+          id="reset-filters">
+          Reset filters
+        </button>
+
+      </div>
+
+
+
+      <!-- ACTIVE FILTER -->
+      <div
+        class="active-filter-message"
+        id="active-filter-message"
+        aria-live="polite">
+        Showing all products
+      </div>
+
+
+
+      <!-- PRODUCT GRID -->
+      <div
+        class="product-grid"
+        id="product-grid">
+
+
+        {% for product in products %}
+
+          <article
+            class="product-card"
+            data-category="{{ product.category|lower }}"
+            data-brand="{{ product.brand|lower }}"
+            data-name="{{ product.name|lower }}"
+            data-search="{{ product.name|lower }} {{ product.brand|lower }} {{ product.category|lower }} {{ product.copy|lower }}">
+
+
+            <!-- IMAGE -->
+            <div class="product-image-wrapper">
+
+              <img
+                src="{{ product.image }}"
+                alt="{{ product.name }}"
+                class="product-image"
+                loading="lazy">
+
+              <div class="image-fallback">
+                <span>G</span>
+              </div>
+
+
+              <span class="product-category">
+                {{ product.category }}
+              </span>
+
+
+              <button
+                type="button"
+                class="quick-add"
+                data-add-product
+                data-product="{{ product.name }}"
+                data-brand="{{ product.brand }}"
+                aria-label="Add {{ product.name }} to request">
+
+                <span>+</span>
+
+              </button>
+
+            </div>
+
+
+
+            <!-- CARD CONTENT -->
+            <div class="product-content">
+
+
+              <div class="product-meta">
+
+                <span class="product-brand">
+                  {{ product.brand }}
+                </span>
+
+                <span class="product-category-text">
+                  {{ product.category }}
+                </span>
+
+              </div>
+
+
+              <h3>
+                {{ product.name }}
+              </h3>
+
+
+              <p>
+                {{ product.copy }}
+              </p>
+
+
+              <button
+                type="button"
+                class="add-request-btn"
+                data-add-product
+                data-product="{{ product.name }}"
+                data-brand="{{ product.brand }}">
+
+                <span>
+                  Add to request
+                </span>
+
+                <span class="add-arrow">
+                  →
+                </span>
+
+              </button>
+
+            </div>
+
+          </article>
+
+        {% empty %}
+
+          <div class="no-products">
+
+            <div class="no-products-icon">
+              ○
+            </div>
+
+            <h3>
+              No products available
+            </h3>
+
+            <p>
+              Products will appear here once they are added.
+            </p>
+
+          </div>
+
+        {% endfor %}
+
+
+      </div>
+
+
+
+      <!-- NO SEARCH RESULTS -->
+      <div
+        class="empty-results"
+        id="empty-results"
+        hidden>
+
+        <div class="empty-icon">
+          ⌕
+        </div>
+
+        <h3>
+          No products found
+        </h3>
+
+        <p>
+          Try another search term or clear your filters.
+        </p>
+
+        <button
+          type="button"
+          id="empty-reset">
+          Clear filters
+        </button>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       BULK CTA
+  ========================================== -->
+
+  <section class="bulk-section">
+
+    <div class="container-wide">
+
+      <div class="bulk-card">
+
+
+        <div class="bulk-content">
+
+          <span class="section-label">
+            FOR BUSINESSES & INSTITUTIONS
+          </span>
+
+          <h2>
+            Need stationery in bulk?
+          </h2>
+
+          <p>
+            Tell us what you need. We can help with
+            office supplies, school requirements,
+            paper products and regular stationery orders.
+          </p>
+
+
+          <a
+            href="{% url 'contact' %}"
+            class="stationery-btn stationery-btn-white">
+
+            Send bulk enquiry
+
+            <span>↗</span>
+
+          </a>
+
+        </div>
+
+
+        <div class="bulk-decoration">
+
+          <div class="bulk-ring ring-one"></div>
+          <div class="bulk-ring ring-two"></div>
+          <div class="bulk-ring ring-three"></div>
+
+          <span>G</span>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================================
+       TOAST
+  ========================================== -->
+
+  <div
+    class="stationery-toast"
+    id="stationery-toast"
+    role="status"
+    aria-live="polite">
+
+    <span class="toast-check">
+      ✓
+    </span>
+
+    <div>
+
+      <strong>
+        Added to request
+      </strong>
+
+      <small data-toast-product>
+        Product added
+      </small>
+
+    </div>
+
+  </div>
+
+
+</main>
+
+{% endblock %}
+
+
+
+{% block extra_js %}
+
+<script src="{% static 'store/js/stationery.js' %}"></script>
+
+{% endblock %}

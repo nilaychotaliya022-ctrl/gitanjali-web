@@ -1,0 +1,219 @@
+/* =========================================================
+   GITANJALI — PROFESSIONAL ERROR PAGES
+   400 / 403 / 404 / 500
+========================================================= */
+
+.g-error-page {
+    min-height: calc(100vh - 220px);
+    display: grid;
+    place-items: center;
+    padding: 70px 20px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(97, 184, 244, .16), transparent 28%),
+        radial-gradient(circle at 85% 80%, rgba(11, 79, 134, .10), transparent 30%),
+        #f7fbff;
+}
+
+.g-error-page::before,
+.g-error-page::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(11, 79, 134, .08);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.g-error-page::before {
+    width: 360px;
+    height: 360px;
+    top: -170px;
+    right: -110px;
+}
+
+.g-error-page::after {
+    width: 280px;
+    height: 280px;
+    bottom: -150px;
+    left: -90px;
+}
+
+.g-error-card {
+    width: min(760px, 100%);
+    position: relative;
+    z-index: 1;
+    padding: clamp(34px, 6vw, 66px);
+    text-align: center;
+    border: 1px solid rgba(11, 79, 134, .10);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, .92);
+    box-shadow: 0 24px 70px rgba(11, 79, 134, .13);
+    backdrop-filter: blur(14px);
+    animation: gErrorCardIn .65s ease both;
+}
+
+.g-error-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+    color: #0b4f86;
+    text-decoration: none;
+}
+
+.g-error-brand-mark {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #0b4f86;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 0 10px 25px rgba(11, 79, 134, .22);
+}
+
+.g-error-brand-copy {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.g-error-brand-name {
+    font-size: 20px;
+    font-weight: 850;
+}
+
+.g-error-brand-sub {
+    margin-top: 5px;
+    color: #71849a;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.g-error-code {
+    margin: 0;
+    color: #0b4f86;
+    font-size: clamp(72px, 14vw, 150px);
+    line-height: .88;
+    font-weight: 900;
+    letter-spacing: -7px;
+    text-shadow: 0 12px 35px rgba(11, 79, 134, .14);
+    animation: gErrorFloat 4s ease-in-out infinite;
+}
+
+.g-error-title {
+    margin: 26px 0 12px;
+    color: #14263a;
+    font-size: clamp(24px, 4vw, 38px);
+    line-height: 1.15;
+    font-weight: 850;
+}
+
+.g-error-copy {
+    max-width: 560px;
+    margin: 0 auto;
+    color: #60758a;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.g-error-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.g-error-btn {
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0 21px;
+    border-radius: 12px;
+    border: 1px solid #0b4f86;
+    background: #0b4f86;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(11, 79, 134, .18);
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.g-error-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px rgba(11, 79, 134, .25);
+    background: #083d69;
+}
+
+.g-error-btn-secondary {
+    background: #fff;
+    color: #0b4f86;
+    box-shadow: none;
+}
+
+.g-error-btn-secondary:hover {
+    background: #f0f7fc;
+    color: #083d69;
+}
+
+.g-error-note {
+    margin-top: 24px;
+    color: #8a9aaa;
+    font-size: 11px;
+    letter-spacing: .2px;
+}
+
+@keyframes gErrorCardIn {
+    from { opacity: 0; transform: translateY(18px) scale(.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes gErrorFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+}
+
+@media (max-width: 600px) {
+    .g-error-page {
+        min-height: calc(100vh - 120px);
+        padding: 35px 15px;
+    }
+
+    .g-error-card {
+        border-radius: 22px;
+        padding: 34px 20px;
+    }
+
+    .g-error-code {
+        letter-spacing: -4px;
+    }
+
+    .g-error-copy {
+        font-size: 14px;
+    }
+
+    .g-error-actions {
+        flex-direction: column;
+    }
+
+    .g-error-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .g-error-card,
+    .g-error-code {
+        animation: none;
+    }
+}

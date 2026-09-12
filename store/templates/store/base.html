@@ -1,0 +1,437 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Gitanjali Stationery & Rubber Stamp{% endblock %}</title>
+
+  <meta name="description"
+        content="{% block description %}Gitanjali Stationery & Rubber Stamp — stationery, printing services and custom rubber stamps in Rajkot, Gujarat.{% endblock %}">
+
+  <meta name="theme-color" content="#0b4f86">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gitanjali Stationery & Rubber Stamp">
+  <meta property="og:title" content="{% block og_title %}Gitanjali Stationery & Rubber Stamp{% endblock %}">
+  <meta property="og:description" content="Stationery, printing services and custom rubber stamps in Rajkot, Gujarat.">
+  <meta property="og:url" content="{{ request.build_absolute_uri }}">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Gitanjali Stationery & Rubber Stamp",
+    "url": "{{ request.scheme }}://{{ request.get_host }}/",
+    "telephone": "+91 94097 34116",
+    "email": "gitanjali.stationary03@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Vir Bhagat Singh Shopping Center, Shop No. 33, Kothariya Main Road",
+      "addressLocality": "Rajkot",
+      "addressRegion": "Gujarat",
+      "postalCode": "360002",
+      "addressCountry": "IN"
+    },
+    "openingHours": "Mo-Sa 08:30-20:30",
+    "priceRange": "₹₹",
+    "sameAs": ["https://wa.me/919409734116"]
+  }
+  </script>
+
+  <link rel="stylesheet" href="{% static 'store/css/site.css' %}">
+  <link rel="stylesheet" href="{% static 'store/css/reviews.css' %}">
+
+  {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+<div class="site-shell" id="top">
+
+  <!-- TOP BAR -->
+  <div class="topline">
+    <div class="container-wide topline-inner">
+      <span>Practical supplies. Properly sorted.</span>
+      <span>Mon–Sat · 8:30 am—8:30 pm · Local delivery available</span>
+    </div>
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <div class="container-wide header-inner">
+
+      <!-- BRAND -->
+      <a href="{% url 'home' %}" class="brand">
+
+        <span class="brand-mark">G</span>
+
+        <span class="brand-copy">
+          <strong class="brand-name">Gitanjali</strong>
+          <small class="brand-sub">Stationery & Rubber Stamp</small>
+        </span>
+
+      </a>
+
+
+      <!-- DESKTOP NAVIGATION -->
+      <nav class="main-nav" aria-label="Main navigation">
+
+        {% for key, label, href in nav_items %}
+
+          <a href="{{ href }}"
+             class="nav-link {% if active == key %}active{% endif %}">
+            {{ label }}
+          </a>
+
+        {% endfor %}
+
+      </nav>
+
+
+      <!-- HEADER ACTIONS -->
+      <div class="header-actions">
+
+        <a href="{% url 'contact' %}" class="btn btn-primary">
+          Request a quote
+          <span>↗</span>
+        </a>
+
+        <button
+          class="btn btn-ghost mobile-menu"
+          type="button"
+          data-menu-toggle
+          aria-label="Toggle navigation"
+          aria-expanded="false">
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+    <nav
+      class="mobile-nav container-wide"
+      data-mobile-nav
+      aria-label="Mobile navigation">
+
+      {% for key, label, href in nav_items %}
+
+        <a href="{{ href }}"
+           class="nav-link {% if active == key %}active{% endif %}">
+          {{ label }}
+        </a>
+
+      {% endfor %}
+
+      <a href="{% url 'contact' %}" class="nav-link">
+        Contact & quote
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- DJANGO MESSAGES -->
+  {% if messages %}
+
+    <div class="container-wide message-stack">
+
+      {% for message in messages %}
+
+        <div class="confirmation">
+          <span>✓</span>
+          <strong>{{ message }}</strong>
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  {% endif %}
+
+
+  <!-- PAGE CONTENT -->
+  {% block content %}{% endblock %}
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container-wide">
+  
+      <div class="footer-main">
+  
+        <!-- FOOTER BRAND -->
+        <div class="footer-brand-panel">
+  
+          <a href="{% url 'home' %}" class="brand footer-brand">
+            <span class="brand-mark">G</span>
+  
+            <span class="brand-copy">
+              <strong class="brand-name">Gitanjali</strong>
+              <small class="brand-sub">Stationery &amp; Rubber Stamp</small>
+            </span>
+          </a>
+  
+          <p class="footer-kicker">
+            STATIONERY &amp; RUBBER STAMP
+          </p>
+  
+          <p class="footer-blurb">
+            Custom rubber stamps, practical stationery,
+            and dependable printing services for everyday
+            work in Rajkot.
+          </p>
+  
+          <!-- SOCIAL / CONTACT -->
+          <div class="footer-social" aria-label="Contact Gitanjali">
+  
+            <!-- CALL -->
+            <a
+              href="tel:+919409734116"
+              aria-label="Call Gitanjali"
+              title="Call Gitanjali">
+              ☎
+            </a>
+  
+            <!-- WHATSAPP -->
+            <a
+              href="https://wa.me/919409734116"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp Gitanjali"
+              title="WhatsApp Gitanjali">
+              ◌
+            </a>
+  
+            <!-- CONTACT -->
+            <a
+              href="{% url 'contact' %}"
+              aria-label="Contact Gitanjali"
+              title="Contact Gitanjali">
+              ✉
+            </a>
+  
+          </div>
+  
+        </div>
+  
+  
+        <!-- QUICK LINKS -->
+        <div class="footer-column">
+  
+          <h3>Quick links</h3>
+  
+          <div class="footer-links">
+  
+            <a href="{% url 'home' %}">Home</a>
+  
+            <a href="{% url 'stationery' %}">
+              Shop stationery
+            </a>
+  
+            <a href="{% url 'printing' %}">
+              Printing services
+            </a>
+  
+            <a href="{% url 'rubber_stamps' %}">
+              Custom rubber stamps
+            </a>
+  
+            <a href="{% url 'about' %}">
+              About us
+            </a>
+  
+            <a href="{% url 'contact' %}">
+              Contact
+            </a>
+  
+          </div>
+  
+        </div>
+  
+  
+        <!-- SERVICES -->
+        <div class="footer-column">
+  
+          <h3>Our services</h3>
+  
+          <div class="footer-links">
+  
+            <a href="{% url 'rubber_stamps' %}">
+              Self-inking stamps
+            </a>
+  
+            <a href="{% url 'rubber_stamps' %}">
+              Company seals
+            </a>
+  
+            <a href="{% url 'rubber_stamps' %}">
+              Custom logo stamps
+            </a>
+  
+            <a href="{% url 'rubber_stamps' %}">
+              Date stamps
+            </a>
+  
+            <a href="{% url 'printing' %}">
+              Xerox &amp; printing
+            </a>
+  
+            <a href="{% url 'printing' %}">
+              Lamination &amp; binding
+            </a>
+  
+          </div>
+  
+        </div>
+  
+  
+        <!-- CONTACT -->
+        <div class="footer-column footer-contact">
+  
+          <h3>Visit us</h3>
+  
+          <div class="footer-contact-list">
+  
+            <!-- GOOGLE MAP LOCATION -->
+            <a
+              class="footer-address"
+              href="https://www.google.com/maps/search/?api=1&query=Gitanjali+Stationery+Mart%2C+33%2C+Kothariya+Main+Road%2C+Rajkot%2C+Gujarat+360002"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Gitanjali Stationery location in Google Maps"
+              title="Open location in Google Maps">
+  
+              <span>⌖</span>
+  
+              <span>
+                Vir Bhagat Singh Shopping Center,<br>
+                Shop No. 33, Kothariya Main Road,<br>
+                Rajkot, Gujarat 360002
+              </span>
+  
+            </a>
+  
+  
+            <!-- PHONE -->
+            <a
+              href="tel:+919409734116"
+              class="footer-phone"
+              aria-label="Call Gitanjali at 9409734116"
+              title="Call Gitanjali">
+  
+              <span>☎</span>
+  
+              <span>
+                +91 94097 34116
+              </span>
+  
+            </a>
+  
+  
+            <!-- EMAIL -->
+            <a
+              href="mailto:gitanjali.stationary03@gmail.com"
+              class="footer-email"
+              aria-label="Email Gitanjali" title="Email Gitanjali">
+  
+              <span>✉</span>
+  
+              <span>
+                gitanjali.stationary03@gmail.com
+              </span>
+  
+            </a>
+  
+  
+            <!-- WHATSAPP -->
+            <a
+              href="https://wa.me/919409734116"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer-whatsapp"
+              aria-label="WhatsApp Gitanjali"
+              title="Chat on WhatsApp">
+  
+              <span>◌</span>
+  
+              <span>
+                WhatsApp us
+              </span>
+  
+            </a>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+  
+      <!-- SERVICE TAGS -->
+      <div class="footer-services">
+  
+        <span>Rubber stamps</span>
+        <span>Company seals</span>
+        <span>Printing</span>
+        <span>Stationery</span>
+        <span>Lamination</span>
+        <span>Spiral binding</span>
+  
+      </div>
+  
+  
+      <!-- FOOTER BOTTOM -->
+      <div class="footer-bottom">
+  
+        <span>
+          © 2026 Gitanjali Stationery &amp; Rubber Stamp.
+          All rights reserved.
+        </span>
+  
+        <a
+          class="back-top"
+          href="#top"
+          aria-label="Back to top"
+          title="Back to top">
+          ↗
+        </a>
+  
+      </div>
+  
+    </div>
+  </footer>
+
+  <!-- MOBILE APP ACTION BAR -->
+  <div class="mobile-app-bar" aria-label="Quick actions">
+    <a href="tel:+919409734116" class="mobile-app-action">
+      <span class="mobile-app-icon">☎</span>
+      <span>Call</span>
+    </a>
+    <a href="https://wa.me/919409734116" target="_blank" rel="noopener noreferrer" class="mobile-app-action mobile-app-whatsapp">
+      <span class="mobile-app-icon">◌</span>
+      <span>WhatsApp</span>
+    </a>
+    <a href="{% url 'contact' %}" class="mobile-app-action mobile-app-quote">
+      <span class="mobile-app-icon">✦</span>
+      <span>Get Quote</span>
+    </a>
+  </div>
+  
+<!-- GLOBAL JAVASCRIPT -->
+<script src="{% static 'store/js/site.js' %}"></script>
+
+<!-- PAGE-SPECIFIC JAVASCRIPT -->
+{% block extra_js %}{% endblock %}
+
+</body>
+</html>

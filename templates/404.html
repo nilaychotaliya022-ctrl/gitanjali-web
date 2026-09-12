@@ -1,0 +1,37 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0b4f86">
+    <title>Page Not Available | Gitanjali</title>
+    <link rel="stylesheet" href="{% static 'store/css/errors.css' %}">
+</head>
+<body>
+    <main class="g-error-page">
+        <section class="g-error-card" aria-labelledby="error-title">
+            <a class="g-error-brand" href="/" aria-label="Gitanjali home">
+                <span class="g-error-brand-mark">G</span>
+                <span class="g-error-brand-copy">
+                    <strong class="g-error-brand-name">Gitanjali</strong>
+                    <small class="g-error-brand-sub">Stationery &amp; Rubber Stamp</small>
+                </span>
+            </a>
+
+            <p class="g-error-code" aria-hidden="true">404</p>
+
+            <h1 class="g-error-title" id="error-title">Page Not Available</h1>
+            <p class="g-error-copy">The page you’re looking for doesn’t exist, may have moved, or the address may be incorrect.</p>
+
+            <div class="g-error-actions">
+                <a class="g-error-btn" href="/">← Back to Home</a>
+                <a class="g-error-btn g-error-btn-secondary" href="/contact/">Contact Gitanjali ↗</a>
+            </div>
+
+            <p class="g-error-note">Gitanjali Stationery &amp; Rubber Stamp · Rajkot, Gujarat</p>
+        </section>
+    </main>
+</body>
+</html>

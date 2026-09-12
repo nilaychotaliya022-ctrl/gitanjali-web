@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | Gitanjali Admin{% endblock %}
+
+{% block branding %}
+<div id="site-name">
+  <a href="{% url 'admin:index' %}" class="gitanjali-admin-brand">
+    <span class="g-admin-mark">G</span>
+    <span>
+      <strong>Gitanjali</strong>
+      <small>Stationery &amp; Rubber Stamp</small>
+    </span>
+  </a>
+</div>
+{% endblock %}
+
+{% block nav-global %}
+<div class="g-admin-top-actions">
+  <a href="/" class="g-top-link">View website ↗</a>
+  {% if user.is_authenticated %}
+    <span class="g-admin-user">Hello, {{ user.get_short_name|default:user.username }}</span>
+  {% endif %}
+</div>
+{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'admin/gitanjali-admin.css' %}">
+{% endblock %}

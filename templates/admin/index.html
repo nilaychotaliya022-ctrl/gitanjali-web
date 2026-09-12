@@ -1,0 +1,113 @@
+{% extends "admin/base_site.html" %}
+{% load i18n static %}
+
+{% block content %}
+<div class="g-dashboard">
+
+  <div class="g-dashboard-head">
+    <div>
+      <span class="g-eyebrow">GITANJALI CONTROL DESK</span>
+      <h1>Good morning, {{ user.get_short_name|default:user.username }}.</h1>
+      <p>Manage reviews and your store administration from one clean workspace.</p>
+    </div>
+    <a class="g-primary-btn" href="{% url 'admin:store_review_add' %}">
+      <span>+</span> Add review
+    </a>
+  </div>
+
+  <div class="g-stat-grid">
+    <a class="g-stat-card" href="{% url 'admin:store_review_changelist' %}">
+      <span class="g-stat-icon">★</span>
+      <span class="g-stat-label">CUSTOMER REVIEWS</span>
+      <strong>{{ g_review_count }}</strong>
+      <small>Customer reviews currently in the database →</small>
+    </a>
+
+    <a class="g-stat-card" href="{% url 'admin:auth_user_changelist' %}">
+      <span class="g-stat-icon">✎</span>
+      <span class="g-stat-label">USERS</span>
+      <strong>{{ g_user_count }}</strong>
+      <small>Admin and registered users →</small>
+    </a>
+
+    <a class="g-stat-card" href="/" target="_blank" rel="noopener">
+      <span class="g-stat-icon">↗</span>
+      <span class="g-stat-label">LIVE WEBSITE</span>
+      <strong>Open site</strong>
+      <small>Check the customer-facing website →</small>
+    </a>
+  </div>
+
+  <div class="g-dashboard-grid">
+    <section class="g-panel">
+      <div class="g-panel-head">
+        <div>
+          <span class="g-eyebrow">STORE</span>
+          <h2>Manage your content</h2>
+        </div>
+      </div>
+
+      {% if app_list %}
+        {% for app in app_list %}
+          <div class="g-app-section">
+            <div class="g-app-title">{{ app.name }}</div>
+            <div class="g-model-grid">
+              {% for model in app.models %}
+                <div class="g-model-card">
+                  <div>
+                    <span class="g-model-icon">▣</span>
+                    <strong>{{ model.name }}</strong>
+                  </div>
+                  <div class="g-model-actions">
+                    {% if model.admin_url %}
+                      <a href="{{ model.admin_url }}">Open</a>
+                    {% endif %}
+                    {% if model.add_url %}
+                      <a href="{{ model.add_url }}">+ Add</a>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="g-empty">You don't have permission to manage any models.</div>
+      {% endif %}
+    </section>
+
+    <aside class="g-panel g-quick-panel">
+      <span class="g-eyebrow">QUICK ACTIONS</span>
+      <h2>Keep things moving.</h2>
+
+      <a href="{% url 'admin:store_review_add' %}" class="g-action">
+        <span>★</span>
+        <div>
+          <strong>Add customer review</strong>
+          <small>Publish a new review</small>
+        </div>
+        <b>→</b>
+      </a>
+
+      <a href="{% url 'admin:store_review_changelist' %}" class="g-action">
+        <span>☰</span>
+        <div>
+          <strong>Review list</strong>
+          <small>Search and manage reviews</small>
+        </div>
+        <b>→</b>
+      </a>
+
+      <a href="/" target="_blank" rel="noopener" class="g-action">
+        <span>↗</span>
+        <div>
+          <strong>View live website</strong>
+          <small>Open customer-facing site</small>
+        </div>
+        <b>→</b>
+      </a>
+    </aside>
+  </div>
+
+</div>
+{% endblock %}

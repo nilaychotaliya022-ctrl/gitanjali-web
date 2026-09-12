@@ -1,0 +1,56 @@
+{% extends "store/base.html" %}
+{% block title %}Contact & Quote — Gitanjali Stationery & Rubber Stamp{% endblock %}
+{% block content %}
+{% include "store/partials/page_hero.html" with eyebrow="The quickest next step" title="Tell us what" accent="you are making." copy="Send a short message and our team will contact you on WhatsApp with the next useful step." %}
+<main class="section">
+  <div class="container-wide contact-layout">
+    <div>
+      <span class="eyebrow">Find us nearby</span>
+      <h2 class="section-heading">Good work<br><em>starts here.</em></h2>
+
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="service-icon">⌖</div>
+          <div>
+            <h3>Visit the store</h3>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Gitanjali+Stationery+Mart%2C+33%2C+Kothariya+Main+Road%2C+Rajkot%2C+Gujarat+360002"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open Gitanjali Stationery in Google Maps">
+              Vir Bhagat Singh Shopping Center, Shop No. 33,<br>
+              Kothariya Main Road, Rajkot, Gujarat 360002
+              <span aria-hidden="true"> ↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="service-icon">☎</div>
+          <div>
+            <h3>Call / WhatsApp</h3>
+            <div class="contact-actions">
+              <a href="tel:+919409734116" class="contact-phone">+91 94097 34116</a>
+              <a href="https://wa.me/919409734116" target="_blank" rel="noopener noreferrer" class="contact-whatsapp">WhatsApp ↗</a>
+            </div>
+            <p>Mon–Sat, 8:30 am—8:30 pm</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="service-icon">@</div>
+          <div>
+            <h3>Email a brief</h3>
+            <a href="mailto:gitanjali.stationary03@gmail.com">gitanjali.stationary03@gmail.com</a>
+            <p>Send us your requirements anytime.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notice">✓ <span>No account or complicated checkout. Send a short request and it will open directly in WhatsApp.</span></div>
+    </div>
+
+    {% include "store/partials/quote_form.html" with quote_form=form %}
+  </div>
+</main>
+{% endblock %}

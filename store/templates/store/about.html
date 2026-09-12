@@ -1,0 +1,317 @@
+{% extends "store/base.html" %}
+{% block title %}Our Story — Gitanjali Stationery Store{% endblock %}
+
+{% block content %}
+
+{% include "store/partials/page_hero.html" with eyebrow="A little about us" title="A neighbourhood" accent="counter, grown up." copy="Gitanjali began with a simple promise: if someone walks in with a practical need, they should walk out with a practical answer." %}
+
+<main>
+
+  <!-- OUR STORY -->
+  <section class="section">
+    <div class="container-wide story-grid">
+
+      <div class="story-visual">
+
+        <div class="story-sheet">
+          <div class="sheet-content">
+
+            <span class="eyebrow">
+              Since 1992
+            </span>
+
+            <h3>
+              Keep it useful.<br>
+              Keep it human.
+            </h3>
+
+            <p>
+              A handwritten list, a good recommendation, and a finished
+              job you can rely on.
+            </p>
+
+          </div>
+        </div>
+
+        <div class="story-badge">
+          <strong>34</strong>
+          <span>
+            years of practical paper work
+          </span>
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <span class="eyebrow">
+          The way we work
+        </span>
+
+        <h2 class="section-heading">
+          We know the<br>
+          <em>little details matter.</em>
+        </h2>
+
+        <p class="muted-copy">
+          A school administrator needs 42 identical project covers.
+          A founder needs a stamp before tomorrow morning.
+          A family needs invitations that feel like them.
+          These are not just orders — they are moments where being
+          looked after matters.
+        </p>
+
+        <p class="muted-copy">
+          Our job is to listen carefully, suggest honestly, and finish
+          neatly. The result is a store that feels familiar, even when
+          the work is new.
+        </p>
+
+        <a href="{% url 'contact' %}" class="btn btn-primary">
+          Talk to our team →
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CAPABILITIES -->
+  <section class="section-tight pale-band">
+
+    <div class="container-wide">
+
+      <span class="eyebrow">
+        What sits behind the counter
+      </span>
+
+      <h2 class="section-heading">
+        Capable by design.
+      </h2>
+
+      <div class="capability-grid">
+
+        <div class="capability">
+          <strong>34</strong>
+          <span>
+            years serving the local neighbourhood
+          </span>
+        </div>
+
+        <div class="capability">
+          <strong>3</strong>
+          <span>
+            ways to help: supplies, print, and stamps
+          </span>
+        </div>
+
+        <div class="capability">
+          <strong>1:1</strong>
+          <span>
+            attention for a list, file, or new idea
+          </span>
+        </div>
+
+        <div class="capability">
+          <strong>0</strong>
+          <span>
+            patience for confusing quotes or vague handoffs
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CUSTOMER REVIEWS -->
+  <section class="section reviews-section">
+
+    <div class="container-wide">
+
+      <span class="eyebrow">
+        Customer notes
+      </span>
+
+      <div class="reviews-intro">
+
+        <h2 class="section-heading">
+          Good work<br>
+          <em>gets noticed.</em>
+        </h2>
+
+        <p class="muted-copy">
+          Real words from people who use the counter for school lists,
+          office work, and the details in between.
+        </p>
+
+      </div>
+
+
+      <div class="reviews-layout">
+
+        <!-- REVIEWS -->
+        <div class="reviews-grid">
+
+          {% for review in reviews %}
+
+            <article class="review-card">
+
+              <div
+                class="review-stars"
+                aria-label="{{ review.rating }} out of 5 stars"
+              >
+                {% for star in "12345" %}
+                  {% if forloop.counter <= review.rating %}
+                    ★
+                  {% else %}
+                    ☆
+                  {% endif %}
+                {% endfor %}
+              </div>
+
+
+              <p class="review-quote">
+                “{{ review.quote }}”
+              </p>
+
+
+              <div class="review-author">
+
+                <strong>
+                  {{ review.name }}
+                </strong>
+
+                <span>
+                  {{ review.context }}
+                </span>
+
+              </div>
+
+            </article>
+
+          {% empty %}
+
+            <div class="review-state">
+              No reviews yet. Be the first customer to share your experience.
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+
+        <!-- REVIEW FORM -->
+        <div class="review-form-card">
+
+          <span class="eyebrow">
+            Share your experience
+          </span>
+
+          <h3>
+            Used our services?
+          </h3>
+
+          <p class="muted-copy">
+            Tell the next customer what it was like.
+            Your review will appear here after you submit it.
+          </p>
+
+
+          <form method="post" class="review-form">
+
+            {% csrf_token %}
+
+            {{ review_form.non_field_errors }}
+
+
+            <div class="review-form-row">
+
+              <div class="field">
+                {{ review_form.name.label_tag }}
+                {{ review_form.name }}
+                {{ review_form.name.errors }}
+              </div>
+
+              <div class="field">
+                {{ review_form.context.label_tag }}
+                {{ review_form.context }}
+                {{ review_form.context.errors }}
+              </div>
+
+            </div>
+
+
+            <div class="field">
+
+              {{ review_form.rating.label_tag }}
+              {{ review_form.rating }}
+              {{ review_form.rating.errors }}
+
+            </div>
+
+
+            <div class="field">
+
+              {{ review_form.quote.label_tag }}
+              {{ review_form.quote }}
+              {{ review_form.quote.errors }}
+
+            </div>
+
+
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              Publish my review <span>→</span>
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT CTA -->
+  <section class="section">
+
+    <div class="container-wide">
+
+      <div class="cta-panel">
+
+        <div>
+
+          <h2>
+            Come by with a question.
+          </h2>
+
+          <p>
+            The best orders often begin with
+            “Can you help me with this?”
+          </p>
+
+        </div>
+
+        <a href="{% url 'contact' %}" class="btn btn-light">
+          Find the counter ↗
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+{% endblock %}

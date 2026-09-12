@@ -1,0 +1,45 @@
+<div class="form-card">
+  {% if not compact %}
+    <span class="eyebrow">Quick WhatsApp request</span>
+    <h2 class="form-title">What can we help you prepare?</h2>
+    <p class="muted-copy form-intro">Keep your message short. Your request will open in WhatsApp before it is sent.</p>
+  {% endif %}
+
+  <form method="post" action="{% url 'contact' %}" class="quote-form">
+    {% csrf_token %}
+    <div class="form-grid">
+      <div class="field">
+        <label for="{{ quote_form.name.id_for_label }}">{{ quote_form.name.label }}</label>
+        {{ quote_form.name }}
+      </div>
+
+      <div class="field">
+        <label for="{{ quote_form.phone.id_for_label }}">{{ quote_form.phone.label }}</label>
+        {{ quote_form.phone }}
+      </div>
+
+      {% if quote_form.service %}
+      <div class="field">
+        <label for="{{ quote_form.service.id_for_label }}">{{ quote_form.service.label }}</label>
+        {{ quote_form.service }}
+      </div>
+      {% endif %}
+
+      <div class="field">
+        <label for="{{ quote_form.deadline.id_for_label }}">{{ quote_form.deadline.label }}</label>
+        {{ quote_form.deadline }}
+      </div>
+
+      <div class="field full">
+        <label for="{{ quote_form.details.id_for_label }}">{{ quote_form.details.label }}</label>
+        {{ quote_form.details }}
+      </div>
+    </div>
+
+    {% if quote_form.errors %}
+      <p class="form-error">Please check the fields above and try again.</p>
+    {% endif %}
+
+    <button class="btn btn-primary" type="submit">Send on WhatsApp <span>→</span></button>
+  </form>
+</div>

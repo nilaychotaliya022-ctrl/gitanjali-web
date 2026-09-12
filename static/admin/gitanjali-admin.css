@@ -1,0 +1,673 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
+
+
+/* =========================================================
+   GITANJALI DJANGO ADMIN
+   Modern blue / white / gold admin theme
+   ========================================================= */
+
+:root {
+  --g-blue: #0870ad;
+  --g-blue-dark: #075785;
+  --g-blue-soft: #e6f4f8;
+  --g-gold: #f4b52f;
+  --g-ink: #14243b;
+  --g-muted: #607388;
+  --g-line: #d7e4eb;
+  --g-bg: #f4f8fb;
+  --g-white: #ffffff;
+  --g-shadow: 0 12px 32px rgba(20, 61, 92, .09);
+}
+
+html, body {
+  background: var(--g-bg) !important;
+}
+
+body {
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  color: var(--g-ink);
+}
+
+#header {
+  min-height: 72px;
+  padding: 0 28px;
+  background: var(--g-blue) !important;
+  border-bottom: 4px solid var(--g-gold);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#branding {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+}
+
+#site-name {
+  margin: 0;
+}
+
+.gitanjali-admin-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.gitanjali-admin-brand > span:last-child {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 5px;
+}
+
+.gitanjali-admin-brand strong {
+  font-size: 19px;
+  letter-spacing: -.04em;
+}
+
+.gitanjali-admin-brand small {
+  color: rgba(255,255,255,.68);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.g-admin-mark {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: var(--g-gold);
+  color: var(--g-ink);
+  border-radius: 11px 11px 11px 3px;
+  box-shadow: 4px 4px 0 var(--g-blue-dark);
+  font: 700 24px Georgia, serif;
+}
+
+.g-admin-top-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.g-top-link {
+  color: #fff !important;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none !important;
+  opacity: .92;
+}
+
+.g-top-link:hover {
+  opacity: 1;
+  color: var(--g-gold) !important;
+}
+
+.g-admin-user {
+  color: rgba(255,255,255,.72);
+  font-size: 11px;
+}
+
+#user-tools {
+  display: none !important;
+}
+
+#content {
+  width: auto !important;
+  max-width: 1280px;
+  margin: 0 auto !important;
+  padding: 36px 28px 60px !important;
+}
+
+.breadcrumbs {
+  background: transparent !important;
+  color: var(--g-muted) !important;
+  padding: 0 28px 18px !important;
+  font-size: 11px !important;
+}
+
+.breadcrumbs a {
+  color: var(--g-blue) !important;
+}
+
+#nav-sidebar {
+  background: #fff !important;
+  border-right: 1px solid var(--g-line) !important;
+}
+
+#nav-sidebar .current-model,
+#nav-sidebar .current-app .section {
+  background: var(--g-blue-soft) !important;
+}
+
+#nav-sidebar a {
+  color: var(--g-ink) !important;
+}
+
+#nav-sidebar a:hover {
+  color: var(--g-blue) !important;
+  background: var(--g-blue-soft) !important;
+}
+
+#nav-sidebar .current-model a {
+  color: var(--g-blue) !important;
+  font-weight: 800;
+}
+
+#toggle-nav-sidebar {
+  color: var(--g-blue) !important;
+}
+
+/* Dashboard */
+
+.g-dashboard {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.g-dashboard-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 28px;
+}
+
+.g-eyebrow {
+  display: inline-block;
+  color: var(--g-blue);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.g-dashboard-head h1 {
+  margin: 9px 0 8px;
+  color: var(--g-ink);
+  font: 700 clamp(30px, 4vw, 46px)/1.05 Georgia, serif;
+  letter-spacing: -.05em;
+}
+
+.g-dashboard-head p {
+  margin: 0;
+  max-width: 620px;
+  color: var(--g-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.g-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 43px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: var(--g-blue);
+  color: #fff !important;
+  box-shadow: 0 5px 0 var(--g-blue-dark);
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none !important;
+  transition: .2s ease;
+}
+
+.g-primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 var(--g-blue-dark);
+}
+
+.g-primary-btn span {
+  color: var(--g-gold);
+  font-size: 18px;
+}
+
+.g-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.g-stat-card {
+  position: relative;
+  min-height: 145px;
+  padding: 23px;
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--g-shadow);
+  text-decoration: none !important;
+  transition: .25s ease;
+}
+
+.g-stat-card:hover {
+  transform: translateY(-4px);
+  border-color: #a8cddd;
+}
+
+.g-stat-icon {
+  position: absolute;
+  top: 20px;
+  right: 21px;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: var(--g-blue-soft);
+  color: var(--g-blue);
+  font-size: 16px;
+}
+
+.g-stat-card:first-child .g-stat-icon {
+  background: #fff1c9;
+  color: #a26e00;
+}
+
+.g-stat-label {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--g-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.g-stat-card strong {
+  display: block;
+  color: var(--g-ink);
+  font-size: 21px;
+  letter-spacing: -.04em;
+}
+
+.g-stat-card small {
+  display: block;
+  margin-top: 7px;
+  color: var(--g-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.g-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.45fr .75fr;
+  gap: 18px;
+}
+
+.g-panel {
+  padding: 25px;
+  border: 1px solid var(--g-line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: var(--g-shadow);
+}
+
+.g-panel-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.g-panel h2 {
+  margin: 8px 0 0;
+  color: var(--g-ink);
+  font: 700 25px/1.1 Georgia, serif;
+  letter-spacing: -.04em;
+}
+
+.g-app-section + .g-app-section {
+  margin-top: 25px;
+}
+
+.g-app-title {
+  margin-bottom: 9px;
+  color: var(--g-blue);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.g-model-grid {
+  display: grid;
+  gap: 9px;
+}
+
+.g-model-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 15px;
+  border: 1px solid var(--g-line);
+  border-radius: 8px;
+  background: #fbfdfe;
+}
+
+.g-model-card > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.g-model-icon {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: var(--g-blue-soft);
+  color: var(--g-blue);
+  font-size: 11px;
+}
+
+.g-model-card strong {
+  font-size: 12px;
+}
+
+.g-model-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.g-model-actions a {
+  color: var(--g-blue) !important;
+  font-size: 10px;
+  font-weight: 800;
+  text-decoration: none !important;
+}
+
+.g-model-actions a:hover {
+  color: var(--g-blue-dark) !important;
+}
+
+.g-quick-panel {
+  background: var(--g-ink);
+  color: #fff;
+}
+
+.g-quick-panel h2 {
+  color: #fff;
+  margin-bottom: 22px;
+}
+
+.g-quick-panel .g-eyebrow {
+  color: var(--g-gold);
+}
+
+.g-action {
+  display: grid;
+  grid-template-columns: 35px 1fr 20px;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255,255,255,.13);
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.g-action:last-child {
+  border-bottom: 1px solid rgba(255,255,255,.13);
+}
+
+.g-action > span {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(244,181,47,.13);
+  color: var(--g-gold);
+}
+
+.g-action strong,
+.g-action small {
+  display: block;
+}
+
+.g-action strong {
+  font-size: 11px;
+}
+
+.g-action small {
+  margin-top: 3px;
+  color: rgba(255,255,255,.54);
+  font-size: 9px;
+}
+
+.g-action b {
+  color: var(--g-gold);
+  text-align: right;
+}
+
+.g-empty {
+  padding: 30px;
+  border: 1px dashed var(--g-line);
+  border-radius: 9px;
+  color: var(--g-muted);
+  text-align: center;
+  font-size: 12px;
+}
+
+/* General Django admin content */
+
+#content-main {
+  max-width: 100% !important;
+}
+
+.module,
+.inline-group {
+  border: 1px solid var(--g-line) !important;
+  border-radius: 10px !important;
+  overflow: hidden;
+  background: #fff !important;
+  box-shadow: 0 5px 18px rgba(20,61,92,.05);
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: var(--g-blue) !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#changelist-filter {
+  border-left: 1px solid var(--g-line) !important;
+  background: #fff !important;
+}
+
+#changelist-filter h2 {
+  background: var(--g-blue) !important;
+}
+
+#changelist-filter a {
+  color: var(--g-blue) !important;
+}
+
+#changelist-filter li.selected a {
+  color: var(--g-ink) !important;
+  font-weight: 800;
+}
+
+#changelist-search input {
+  border: 1px solid var(--g-line) !important;
+  border-radius: 6px !important;
+  min-height: 34px;
+}
+
+input, textarea, select {
+  border: 1px solid var(--g-line) !important;
+  border-radius: 6px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--g-blue) !important;
+  box-shadow: 0 0 0 3px rgba(8,112,173,.1) !important;
+}
+
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+  border-radius: 7px !important;
+  background: var(--g-blue) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+}
+
+.button.default,
+input[type=submit].default,
+.submit-row input.default {
+  background: var(--g-blue) !important;
+}
+
+.button:hover,
+input[type=submit]:hover,
+input[type=button]:hover,
+a.button:hover {
+  background: var(--g-blue-dark) !important;
+}
+
+.object-tools a {
+  border-radius: 7px !important;
+  background: var(--g-blue) !important;
+}
+
+#result_list {
+  border: 1px solid var(--g-line);
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+#result_list thead th {
+  background: #edf7fa !important;
+  color: var(--g-muted) !important;
+  font-size: 9px !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+#result_list tbody tr:nth-child(even) {
+  background: #fbfdfe !important;
+}
+
+#result_list tbody tr:hover {
+  background: var(--g-blue-soft) !important;
+}
+
+#result_list td,
+#result_list th {
+  border-bottom: 1px solid var(--g-line) !important;
+}
+
+#result_list a {
+  color: var(--g-blue) !important;
+  font-weight: 700;
+}
+
+.paginator {
+  border-top: 1px solid var(--g-line) !important;
+}
+
+.messagelist .success {
+  background: #e2f5ed !important;
+  color: #216c58 !important;
+  border-radius: 7px;
+}
+
+/* Login page */
+body.login {
+  background: linear-gradient(135deg, #eaf6f9, #f4f8fb) !important;
+}
+
+.login #container {
+  width: min(430px, calc(100% - 30px));
+}
+
+.login #header {
+  justify-content: center;
+  border-radius: 0;
+}
+
+.login #content {
+  padding: 35px 20px !important;
+}
+
+.login .submit-row {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.login .form-row {
+  padding: 8px 0 !important;
+}
+
+.login .form-row input {
+  width: 100% !important;
+  box-sizing: border-box;
+  min-height: 42px;
+}
+
+@media (max-width: 900px) {
+  #header {
+    padding: 0 18px;
+  }
+
+  .g-admin-top-actions {
+    display: none;
+  }
+
+  #content {
+    padding: 28px 18px 50px !important;
+  }
+
+  .g-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .g-stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .g-dashboard-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .g-primary-btn {
+    width: 100%;
+  }
+
+  .g-panel {
+    padding: 18px;
+  }
+
+  .g-model-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .g-model-actions {
+    width: 100%;
+  }
+
+  .g-model-actions a {
+    flex: 1;
+  }
+}
