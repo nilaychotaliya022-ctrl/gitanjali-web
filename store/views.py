@@ -1,234 +1,16 @@
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from urllib.parse import quote
 
 from .forms import QuoteForm, ReviewForm
-from .models import Review
+from .models import Review, Category, Product
 
 
-PRODUCTS = [
-
-    # =========================
-    # SCHOOL STATIONERY
-    # =========================
-    {
-        "category": "School",
-        "name": "School Notebook",
-        "brand": "Classmate",
-        "copy": "Quality notebooks for everyday school notes, homework, and classwork.",
-        "image": "/static/store/images/classmate_notebook.jpg",
-    },
-    {
-        "category": "School",
-        "name": "Geometry Box",
-        "brand": "DOMS",
-        "copy": "Complete geometry essentials for school mathematics and technical drawing.",
-        "image": "/static/store/images/geometry.jpg",
-    },
-    {
-        "category": "School",
-        "name": "School Writing Kit",
-        "brand": "DOMS",
-        "copy": "Pens, pencils, erasers, sharpeners and everyday writing essentials.",
-        "image": "/static/store/images/WRITINGKIT.jpg",
-    },
-    {
-        "category": "School",
-        "name": "Colour Pencil Set",
-        "brand": "DOMS",
-        "copy": "Bright and smooth colour pencils for school projects and creative work.",
-        "image": "/static/store/images/COLORKIT.jpg",
-    },
-
-    # =========================
-    # OFFICE STATIONERY
-    # =========================
-    {
-        "category": "Office",
-        "name": "Office Writing Essentials",
-        "brand": "Cello",
-        "copy": "Reliable pens and writing tools for reception desks, offices and daily work.",
-        "image": "/static/store/images/officekit.jpg",
-    },
-    {
-        "category": "Office",
-        "name": "Premium Office Notebook",
-        "brand": "Classmate",
-        "copy": "Professional notebooks for meetings, planning, records and daily notes.",
-        "image": "/static/store/images/classmetnot.jpg",
-    },
-    {
-        "category": "Office",
-        "name": "Office Desk Essentials",
-        "brand": "Kangaro",
-        "copy": "Staplers, punches, clips and useful tools for a productive office desk.",
-        "image": "/static/store/images/kangaroo.jpg",
-    },
-
-    # =========================
-    # BILL BOOKS
-    # =========================
-    {
-        "category": "Bill Books",
-        "name": "Duplicate Bill Book",
-        "brand": "Gitanjali",
-        "copy": "Practical duplicate bill books for shops, businesses and daily transactions.",
-        "image": "/static/store/images/billbook.jpg",
-    },
-    {
-        "category": "Bill Books",
-        "name": "Triplicate Bill Book",
-        "brand": "Gitanjali",
-        "copy": "Three-copy bill books designed for organised business record keeping.",
-        "image": "/static/store/images/triplicate.jpg",
-    },
-    {
-        "category": "Bill Books",
-        "name": "Cash Memo Book",
-        "brand": "Gitanjali",
-        "copy": "Easy-to-use cash memo books for retail counters and businesses.",
-        "image": "/static/store/images/cashmemo.jpg",
-    },
-
-    # =========================
-    # ACCOUNT BOOKS
-    # =========================
-    {
-        "category": "Accounts",
-        "name": "Register",
-        "brand": "Gitanjali",
-        "copy": "Ruled account books for ledgers, customer records and business accounts.",
-        "image": "/static/store/images/register.jpg",
-    },
-    {
-        "category": "Accounts",
-        "name": "Spiral Diary",
-        "brand": "Gitanjali",
-        "copy": "Keep daily cash transactions and financial records organised.",
-        "image": "/static/store/images/diary.jpg",
-    },
-    {
-        "category": "Accounts",
-        "name": "Office Diary",
-        "brand": "Gitanjali",
-        "copy": "Useful ledger books for shops, offices and professional record keeping.",
-        "image": "/static/store/images/diary2.jpg",
-    },
-
-    # =========================
-    # FILES
-    # =========================
-    {
-        "category": "Files",
-        "name": "Document Files",
-        "brand": "Gitanjali",
-        "copy": "Keep important documents protected, organised and easy to find.",
-        "image": "/static/store/images/docfile.jpg",
-    },
-    {
-        "category": "Files",
-        "name": "Office Folder",
-        "brand": "Gitanjali",
-        "copy": "Professional folders for reports, documents and office paperwork.",
-        "image": "/static/store/images/folder.jpg",
-    },
-    {
-        "category": "Files",
-        "name": "Plastic File Folder",
-        "brand": "Gitanjali",
-        "copy": "Lightweight document storage for school, office and personal use.",
-        "image": "/static/store/images/plastic.jpg",
-    },
-
-    # =========================
-    # OFFICE SUPPLIES
-    # =========================
-    {
-        "category": "Office Supplies",
-        "name": "Stapler",
-        "brand": "Kangaro",
-        "copy": "Strong and dependable staplers for everyday office paperwork.",
-        "image": "/static/store/images/stepler.jpg",
-    },
-    {
-        "category": "Office Supplies",
-        "name": "Paper Punch",
-        "brand": "Kangaro",
-        "copy": "Precision paper punches for organised filing and document preparation.",
-        "image": "/static/store/images/punch.jpg",
-    },
-    {
-        "category": "Office Supplies",
-        "name": "Adhesive Tape",
-        "brand": "Pidilite",
-        "copy": "Useful adhesive solutions for packaging, office work and everyday tasks.",
-        "image": "/static/store/images/tap.jpg",
-    },
-
-    # =========================
-    # WRITING
-    # =========================
-    {
-        "category": "Writing",
-        "name": "Gel Pens",
-        "brand": "Cello",
-        "copy": "Smooth-flowing pens designed for comfortable everyday writing.",
-        "image": "/static/store/images/gelpen.jpg",
-    },
-    {
-        "category": "Writing",
-        "name": "Permanent Marker",
-        "brand": "Artline",
-        "copy": "Bold permanent markers for labels, packaging, boards and general use.",
-        "image": "/static/store/images/marker.jpg",
-    },
-    {
-        "category": "Writing",
-        "name": "Whiteboard Marker",
-        "brand": "Artline",
-        "copy": "Clear, easy-to-read markers for classrooms, offices and presentations.",
-        "image": "/static/store/images/whitemarker.jpg",
-    },
-
-    # =========================
-    # PAPER
-    # =========================
-    {
-        "category": "Paper",
-        "name": "A4 Copier Paper",
-        "brand": "Paper",
-        "copy": "Reliable everyday paper for printing, copying, documentation and office work.",
-        "image": "/static/store/images/paper.jpg",
-    },
-    {
-        "category": "Paper",
-        "name": "Colour Paper",
-        "brand": "Paper",
-        "copy": "Colourful paper for school projects, office presentations and creative work.",
-        "image": "/static/store/images/colorpaper.jpg",
-    },
-
-    # =========================
-    # ART & CRAFT
-    # =========================
-    {
-        "category": "Art & Craft",
-        "name": "Art Colour Set",
-        "brand": "DOMS",
-        "copy": "Creative colour supplies for students, artists and craft projects.",
-        "image": "/static/store/images/artcolorset.jpg",
-    },
-    {
-        "category": "Art & Craft",
-        "name": "Craft Adhesive",
-        "brand": "Pidilite",
-        "copy": "Trusted adhesive for school projects, crafts and everyday creative work.",
-        "image": "/static/store/images/craft.jpg",
-    },
-
-]
-
+# =========================================================
+# STATIC — stamp types
+# =========================================================
 
 STAMP_TYPES = [
     ("Office seal", "For documents that need your official mark.", "from ₹280", "briefcase"),
@@ -241,15 +23,20 @@ STAMP_TYPES = [
 def shared_context(**extra):
     return {
         "nav_items": [
-            ("home", "Home", "/"),
-            ("stationery", "Stationery", "/stationery/"),
-            ("printing", "Printing", "/printing/"),
-            ("stamps", "Rubber stamps", "/rubber-stamps/"),
-            ("about", "Our story", "/about/"),
+            ("home",         "Home",           "/"),
+            ("stationery",   "Stationery",     "/stationery/"),
+            ("all_products", "All products",   "/products/"),
+            ("printing",     "Printing",       "/printing/"),
+            ("stamps",       "Rubber stamps",  "/rubber-stamps/"),
+            ("about",        "Our story",      "/about/"),
         ],
         **extra,
     }
 
+
+# =========================================================
+# HOME
+# =========================================================
 
 def home(request):
     review_form = ReviewForm(request.POST or None)
@@ -270,26 +57,126 @@ def home(request):
     )
 
 
+# =========================================================
+# STATIONERY (categorised, PAGINATED)
+# =========================================================
+
 def stationery(request):
-    categories = sorted(
-        set(product["category"] for product in PRODUCTS)
+    """
+    Stationery page — shows category tiles + brands,
+    and a paginated grid of products (12 per page).
+    Supports search (?q=) and category filter (?cat=).
+    """
+    q = (request.GET.get("q") or "").strip()
+    cat_slug = (request.GET.get("cat") or "").strip()
+
+    categories = Category.objects.all().prefetch_related("products")
+
+    products_qs = (
+        Product.objects
+        .filter(is_active=True)
+        .select_related("category")
     )
 
+    # Category filter
+    if cat_slug and cat_slug != "all":
+        products_qs = products_qs.filter(category__slug=cat_slug)
+
+    # Search
+    if q:
+        from django.db.models import Q
+        products_qs = products_qs.filter(
+            Q(name__icontains=q)
+            | Q(brand__icontains=q)
+            | Q(copy__icontains=q)
+            | Q(category__name__icontains=q)
+        )
+
+    # Brands (from active products)
     brands = sorted(
-        set(product["brand"] for product in PRODUCTS)
+        {p.brand for p in Product.objects.filter(is_active=True) if p.brand}
     )
+
+    # Paginate — 12 per page
+    paginator = Paginator(products_qs, 12)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
 
     return render(
         request,
         "store/stationery.html",
         shared_context(
             active="stationery",
-            products=PRODUCTS,
             categories=categories,
             brands=brands,
+            page_obj=page_obj,
+            products=page_obj.object_list,
+            total_products=paginator.count,
+            q=q,
+            active_category=cat_slug,
         ),
     )
 
+
+# =========================================================
+# ALL PRODUCTS (flat list, PAGINATED)
+# =========================================================
+
+def all_products(request):
+    """
+    A flat, paginated listing of every active product.
+    Supports search (?q=) and category filter (?cat=).
+    """
+    q = (request.GET.get("q") or "").strip()
+    cat_slug = (request.GET.get("cat") or "").strip()
+
+    categories = Category.objects.all()
+
+    products_qs = (
+        Product.objects
+        .filter(is_active=True)
+        .select_related("category")
+    )
+
+    if cat_slug and cat_slug != "all":
+        products_qs = products_qs.filter(category__slug=cat_slug)
+
+    if q:
+        from django.db.models import Q
+        products_qs = products_qs.filter(
+            Q(name__icontains=q)
+            | Q(brand__icontains=q)
+            | Q(copy__icontains=q)
+            | Q(category__name__icontains=q)
+        )
+
+    brands = sorted(
+        {p.brand for p in Product.objects.filter(is_active=True) if p.brand}
+    )
+
+    paginator = Paginator(products_qs, 12)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    return render(
+        request,
+        "store/all_products.html",
+        shared_context(
+            active="all_products",
+            categories=categories,
+            brands=brands,
+            page_obj=page_obj,
+            products=page_obj.object_list,
+            total_products=paginator.count,
+            q=q,
+            active_category=cat_slug,
+        ),
+    )
+
+
+# =========================================================
+# PRINTING
+# =========================================================
 
 def printing(request):
     return render(
@@ -302,6 +189,10 @@ def printing(request):
     )
 
 
+# =========================================================
+# RUBBER STAMPS
+# =========================================================
+
 def rubber_stamps(request):
     return render(
         request,
@@ -313,6 +204,10 @@ def rubber_stamps(request):
         ),
     )
 
+
+# =========================================================
+# ABOUT
+# =========================================================
 
 def about(request):
     review_form = ReviewForm(request.POST or None)
@@ -332,6 +227,10 @@ def about(request):
         ),
     )
 
+
+# =========================================================
+# CONTACT
+# =========================================================
 
 def contact(request):
     form = QuoteForm(request.POST or None)

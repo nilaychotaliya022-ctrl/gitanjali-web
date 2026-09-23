@@ -1,0 +1,685 @@
+/* =========================================================
+   GITANJALI — PREMIUM NAVBAR & BRANDING
+   Animated logo, nav links, mobile menu, footer branding
+   UPDATED: Larger, more prominent brand/logo
+========================================================= */
+
+/* =========================================================
+   TOPLINE — ANIMATED MARQUEE
+========================================================= */
+
+/* =========================================================
+   TOPLINE — ANIMATED MARQUEE (FULL WIDTH)
+========================================================= */
+
+.topline {
+    min-height: 38px;
+    width: 100%;
+    background: linear-gradient(90deg, #0b4f86, #0870ad, #0b4f86);
+    background-size: 200% 100%;
+    animation: toplineShift 8s ease infinite;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes toplineShift {
+    0%, 100% { background-position: 0% 50%; }
+    50%      { background-position: 100% 50%; }
+}
+
+.topline-track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    width: max-content;          /* ← KEY: lets it grow beyond parent */
+    min-height: 38px;
+    padding: 0 20px;
+    white-space: nowrap;
+    animation: marqueeSlide 32s linear infinite;
+    will-change: transform;
+}
+
+.topline-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marqueeSlide {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.topline-item {
+    font: 500 10px var(--mono);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    opacity: .92;
+    flex-shrink: 0;              /* ← KEY: prevents text squishing */
+}
+
+.topline-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #f4b52f;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgba(244, 181, 47, .6);
+}
+
+
+/* =========================================================
+   HEADER SHELL
+========================================================= */
+
+.site-header {
+    position: relative;
+    z-index: 50;
+    background: rgba(255, 255, 255, .88);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border-bottom: 1px solid var(--line);
+    transition: box-shadow .3s ease, background .3s ease;
+}
+
+.site-header.is-scrolled {
+    background: rgba(255, 255, 255, .96);
+    box-shadow: 0 12px 40px rgba(11, 79, 134, .1);
+}
+
+.header-inner {
+    min-height: 96px;            /* was 82px — gives brand room to breathe */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;                   /* was 20px */
+}
+
+
+/* =========================================================
+   BRAND — HEADER (light background) — LARGER & BOLDER
+========================================================= */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;                   /* was 12px — more space around logo */
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    padding: 4px 0;              /* gives hover underline some room */
+}
+
+/* Accent underline that grows on hover */
+.brand::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    transition: width .4s cubic-bezier(.22, 1, .36, 1);
+    border-radius: 2px;
+}
+.brand:hover::after {
+    width: 100%;
+}
+
+.brand-mark {
+    position: relative;
+    width: 72px;                 /* was 54px — much bigger logo */
+    height: 72px;
+    padding: 5px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px 16px 16px 5px;
+    background: #fff;
+    box-shadow:
+        5px 5px 0 var(--blue),
+        0 10px 26px rgba(11, 79, 134, .14);
+    transition:
+        transform .45s cubic-bezier(.34, 1.56, .64, 1),
+        border-radius .45s ease,
+        box-shadow .35s ease;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.brand-mark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(244, 181, 47, .22), transparent 60%);
+    opacity: 0;
+    transition: opacity .4s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Soft halo glow behind logo */
+.brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 22px;
+    background: radial-gradient(circle at 30% 30%, rgba(244, 181, 47, .35), transparent 70%);
+    opacity: 0;
+    transition: opacity .4s ease;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.brand:hover .brand-mark {
+    transform: rotate(-6deg) scale(1.08);
+    border-radius: 20px 20px 20px 5px;
+    box-shadow:
+        7px 7px 0 var(--blue),
+        0 16px 36px rgba(11, 79, 134, .24);
+}
+
+.brand:hover .brand-mark::before {
+    opacity: 1;
+}
+
+.brand:hover .brand-mark::after {
+    opacity: 1;
+}
+
+.brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform .5s ease;
+}
+
+.brand:hover .brand-logo-img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================================
+   BRAND TEXT — LETTER REVEAL (header) — LARGER
+========================================================= */
+
+.brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    line-height: 1;
+    min-width: 0;
+}
+
+.brand-name {
+    display: flex;
+    font-size: 26px;             /* was 18px — much larger, more "popping" */
+    letter-spacing: -.045em;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1;
+}
+
+.brand-letter {
+    display: inline-block;
+    transition:
+        transform .3s cubic-bezier(.34, 1.56, .64, 1),
+        color .3s ease;
+    transform-origin: bottom center;
+}
+
+.brand:hover .brand-letter {
+    color: var(--blue);
+    transform: translateY(-3px);   /* was -2px — more lift */
+}
+
+.brand:hover .brand-letter:nth-child(1) { transition-delay: 0s; }
+.brand:hover .brand-letter:nth-child(2) { transition-delay: .03s; }
+.brand:hover .brand-letter:nth-child(3) { transition-delay: .06s; }
+.brand:hover .brand-letter:nth-child(4) { transition-delay: .09s; }
+.brand:hover .brand-letter:nth-child(5) { transition-delay: .12s; }
+.brand:hover .brand-letter:nth-child(6) { transition-delay: .15s; }
+.brand:hover .brand-letter:nth-child(7) { transition-delay: .18s; }
+.brand:hover .brand-letter:nth-child(8) { transition-delay: .21s; }
+.brand:hover .brand-letter:nth-child(9) { transition-delay: .24s; }
+
+.brand-sub {
+    font-size: 10.5px;            /* was 9px — bigger tagline */
+    color: var(--muted);
+    letter-spacing: .18em;        /* was .16em */
+    text-transform: uppercase;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MAIN NAVIGATION — ANIMATED UNDERLINE
+========================================================= */
+
+.main-nav {
+    display: flex;
+    gap: 3px;
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    padding: 11px 14px;
+    border-radius: 9px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color .25s ease, background .25s ease, transform .2s ease;
+    overflow: hidden;
+}
+
+.nav-link-text {
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link-underline {
+    position: absolute;
+    bottom: 6px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .35s cubic-bezier(.65, 0, .35, 1);
+}
+
+.nav-link:hover {
+    color: var(--blue);
+    background: var(--pale);
+}
+
+.nav-link:hover .nav-link-underline {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    color: var(--blue);
+    background: var(--pale);
+}
+
+.nav-link.active .nav-link-underline {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* =========================================================
+   BUTTON SHINE EFFECT
+========================================================= */
+
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, .35),
+        transparent
+    );
+    transform: skewX(-20deg);
+    transition: left .6s ease;
+}
+
+.btn-shine:hover::before {
+    left: 130%;
+}
+
+.btn-arrow {
+    display: inline-block;
+    transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
+}
+
+.btn-shine:hover .btn-arrow {
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   HAMBURGER MENU
+========================================================= */
+
+.mobile-menu {
+    display: none;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    transition: background .25s ease, border-color .25s ease;
+}
+
+.mobile-menu:hover {
+    background: var(--pale);
+    border-color: var(--blue);
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 20px;
+    height: 14px;
+    position: relative;
+}
+
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--blue);
+    border-radius: 2px;
+    transition:
+        transform .35s cubic-bezier(.65, 0, .35, 1),
+        opacity .25s ease,
+        width .35s ease;
+    transform-origin: center;
+}
+
+.hamburger span:nth-child(2) {
+    width: 70%;
+}
+
+.mobile-menu[aria-expanded="true"] .hamburger span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-menu[aria-expanded="true"] .hamburger span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.mobile-menu[aria-expanded="true"] .hamburger span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MOBILE NAVIGATION
+========================================================= */
+
+.mobile-nav {
+    display: none;
+    padding-bottom: 16px;
+    overflow: hidden;
+}
+
+.mobile-nav.open {
+    display: grid;
+    gap: 6px;
+    animation: mobileNavReveal .3s cubic-bezier(.65, 0, .35, 1) both;
+}
+
+@keyframes mobileNavReveal {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 52px;
+    padding: 0 16px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--line);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateX(-12px);
+    animation: mobileNavItemIn .4s ease forwards;
+    animation-delay: calc(var(--delay, 0) * 60ms + 80ms);
+}
+
+@keyframes mobileNavItemIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.mobile-nav .nav-link.active {
+    background: var(--pale);
+    border-color: rgba(11, 79, 134, .18);
+    color: var(--blue);
+}
+
+.mobile-nav-index {
+    font: 500 10px var(--mono);
+    color: var(--muted);
+    letter-spacing: .1em;
+}
+
+.mobile-nav-arrow {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 16px;
+    transition: transform .3s ease, color .3s ease;
+}
+
+.mobile-nav .nav-link:hover .mobile-nav-arrow {
+    transform: translateX(4px);
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   CONFIRMATION MESSAGES
+========================================================= */
+
+.confirmation-animate {
+    animation: confirmSlideIn .5s cubic-bezier(.34, 1.56, .64, 1) both;
+}
+
+@keyframes confirmSlideIn {
+    from { opacity: 0; transform: translateY(-10px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.confirmation-icon {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #1b6b59;
+    color: #fff;
+    font-size: 12px;
+    flex-shrink: 0;
+    animation: checkPop .4s cubic-bezier(.34, 1.56, .64, 1) .15s both;
+}
+
+@keyframes checkPop {
+    from { transform: scale(0); }
+    to   { transform: scale(1); }
+}
+
+
+/* =========================================================
+   PAGE CONTENT FADE IN
+========================================================= */
+
+.page-content {
+    animation: pageFadeIn .6s ease both;
+}
+
+@keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================================
+   FOOTER BRAND — VISIBILITY FIX (dark gradient background)
+========================================================= */
+
+.footer .brand,
+.footer .footer-brand {
+    color: #ffffff;
+}
+
+.footer .brand-name,
+.footer .footer-brand .brand-name {
+    color: #ffffff !important;
+    font-weight: 800;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+}
+
+.footer .brand-sub,
+.footer .footer-brand .brand-sub {
+    color: rgba(255, 255, 255, .72) !important;
+    letter-spacing: .16em;
+    font-weight: 700;
+}
+
+.footer .brand-letter {
+    color: #ffffff;
+    transition: color .3s ease, transform .3s ease;
+}
+
+.footer .brand:hover .brand-letter {
+    color: #f4b52f;
+    transform: translateY(-2px);
+}
+
+.footer .brand-mark {
+    width: 64px;                 /* was 54px — matched to new header size */
+    height: 64px;
+    padding: 5px;
+    background: #ffffff;
+    border-radius: 14px 14px 14px 4px;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, .18),
+        0 10px 26px rgba(0, 0, 0, .28);
+}
+
+.footer .brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.footer .brand:hover .brand-mark {
+    transform: rotate(-5deg) scale(1.06);
+    border-radius: 18px;
+}
+
+.footer-kicker {
+    color: #7dc8ff !important;
+}
+
+.footer-blurb {
+    color: rgba(255, 255, 255, .72) !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+    .main-nav { display: none; }
+
+    .mobile-menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-actions .btn-primary { display: none; }
+
+    .mobile-nav.open { display: grid; }
+
+    .header-inner { min-height: 84px; }
+
+    .brand-mark {
+        width: 62px;
+        height: 62px;
+        padding: 4px;
+    }
+
+    .brand-name { font-size: 22px; }
+
+    .brand-sub { font-size: 10px; }
+}
+
+@media (max-width: 640px) {
+    .topline-track {
+        gap: 18px;
+        padding: 0 14px;
+    }
+
+    .topline-item { font-size: 9px; }
+
+    .header-inner { min-height: 72px; }
+
+    .brand-mark { width: 54px; height: 54px; }
+
+    .brand-name { font-size: 19px; }
+
+    .brand-sub { font-size: 9px; }
+}
+
+@media (max-width: 420px) {
+    .brand-mark { width: 48px; height: 48px; }
+
+    .brand-name { font-size: 17px; }
+
+    .brand-sub { display: none; }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .topline,
+    .topline-track,
+    .page-content,
+    .mobile-nav.open,
+    .mobile-nav .nav-link,
+    .confirmation-animate,
+    .confirmation-icon {
+        animation: none !important;
+    }
+
+    .brand-letter,
+    .brand-mark,
+    .brand-logo-img,
+    .nav-link-underline,
+    .btn-arrow,
+    .hamburger span,
+    .mobile-nav-arrow {
+        transition: none !important;
+    }
+}

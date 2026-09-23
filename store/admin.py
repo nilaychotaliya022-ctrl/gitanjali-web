@@ -1,27 +1,84 @@
 from django.contrib import admin
+from django.utils.html import format_html
 
-from .models import Review
+from .models import Category, Product, Review
 
+
+# =========================================================
+# CATEGORY
+# =========================================================
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ("name", "slug", "icon", "order", "product_count")
+    list_editable = ("order",)
+    prepopulated_fields = {"slug": ("name",)}
+    search_fields = ("name", "slug")
+    ordering = ("order", "name")
+
+    @admin.display(description="Products")
+    def product_count(self, obj):
+        return obj.products.count()
+
+
+# =========================================================
+# PRODUCT — with image upload + preview
+# =========================================================
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ("thumb", "name", "brand", "category", "is_active", "order")
+    list_display_links = ("thumb", "name")
+    list_editable = ("is_active", "order")
+    list_filter = ("category", "is_active", "brand")
+    search_fields = ("name", "brand", "copy")
+    autocomplete_fields = ("category",)
+    save_on_top = True
+
+    fieldsets = (
+        ("Product info", {
+            "fields": ("name", "brand", "category", "copy")
+        }),
+        ("Image", {
+            "fields": ("image", "preview"),
+            "description": "Upload a product image (JPG/PNG/WebP). "
+                           "It will be saved under /media/products/."
+        }),
+        ("Visibility", {
+            "fields": ("is_active", "order")
+        }),
+    )
+    readonly_fields = ("preview",)
+
+    @admin.display(description="Image")
+    def thumb(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="height:42px;width:42px;'
+                'object-fit:cover;border-radius:6px;'
+                'border:1px solid #e5e0d5;" />',
+                obj.image.url,
+            )
+        return "—"
+
+    @admin.display(description="Preview")
+    def preview(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" style="max-height:240px;'
+                'border-radius:12px;border:1px solid #e5e0d5;" />',
+                obj.image.url,
+            )
+        return "No image uploaded yet."
+
+
+# =========================================================
+# REVIEW
+# =========================================================
 
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ("customer", "context", "rating_display", "quote_preview", "created_at")
+    list_display = ("name", "context", "rating", "created_at")
     list_filter = ("rating", "created_at")
     search_fields = ("name", "context", "quote")
     ordering = ("-created_at",)
-    list_per_page = 12
-    date_hierarchy = "created_at"
-    readonly_fields = ("created_at",)
-
-    @admin.display(description="Customer", ordering="name")
-    def customer(self, obj):
-        return obj.name
-
-    @admin.display(description="Rating", ordering="rating")
-    def rating_display(self, obj):
-        return "★" * obj.rating + "☆" * (5 - obj.rating)
-
-    @admin.display(description="Review")
-    def quote_preview(self, obj):
-        text = obj.quote.strip()
-        return text if len(text) <= 80 else text[:80] + "…"

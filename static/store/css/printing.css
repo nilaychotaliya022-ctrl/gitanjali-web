@@ -1,7 +1,12 @@
-
 /* =========================================================
    GITANJALI PRINTING PAGE
    Dedicated stylesheet - loaded only on printing.html
+   Machine cards with images + animations
+   COMPACT VERSION — all cards slightly smaller
+========================================================= */
+
+/* =========================================================
+   HERO
 ========================================================= */
 
 .printing-hero{
@@ -103,7 +108,7 @@
 .printing-size-badge span + i{color:var(--gold)}
 .printing-size-badge i{font-style:normal}
 
-/* Hero paper illustration */
+/* Hero illustration */
 .printing-hero-visual{
     position:relative;
     min-height:425px;
@@ -137,6 +142,7 @@
     background:#fff;
     transform:rotate(-12deg);
     z-index:4;
+    animation:paperFloat1 7s ease-in-out infinite;
 }
 .printing-hero-visual .paper-two{
     width:245px;height:175px;
@@ -144,6 +150,7 @@
     background:#fff;
     transform:rotate(-4deg);
     z-index:3;
+    animation:paperFloat2 8s ease-in-out infinite;
 }
 .printing-hero-visual .paper-three{
     width:295px;height:210px;
@@ -151,6 +158,7 @@
     background:#fff;
     transform:rotate(4deg);
     z-index:2;
+    animation:paperFloat3 9s ease-in-out infinite;
 }
 .printing-hero-visual .paper-one:after,
 .printing-hero-visual .paper-two:after,
@@ -176,6 +184,7 @@
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
+    animation:largeFormatFloat 6s ease-in-out infinite;
 }
 .large-format-paper span{
     font:800 34px var(--sans);
@@ -208,9 +217,13 @@
     margin-right:7px;
     border-radius:50%;
     background:var(--gold);
+    animation:labelPulse 2.4s ease-in-out infinite;
 }
 
-/* Stats */
+/* =========================================================
+   STATS
+========================================================= */
+
 .printing-stats{
     background:var(--blue);
     color:#fff;
@@ -240,17 +253,20 @@
     letter-spacing:.05em;
 }
 
-/* Main service cards */
+/* =========================================================
+   MAIN SERVICE CARDS  — COMPACT
+========================================================= */
+
 .printing-service-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:48px;
+    gap:14px;
+    margin-top:42px;
 }
 .printing-card{
     position:relative;
-    min-height:365px;
-    padding:28px;
+    min-height:300px;
+    padding:22px;
     overflow:hidden;
     border:1px solid var(--line);
     border-radius:12px;
@@ -267,7 +283,7 @@
     content:"";
     position:absolute;
     right:-45px;top:-45px;
-    width:130px;height:130px;
+    width:110px;height:110px;
     border-radius:50%;
     background:var(--pale);
     opacity:.55;
@@ -282,18 +298,18 @@
 }
 .printing-card-number{
     position:absolute;
-    right:25px;top:27px;
+    right:20px;top:21px;
     color:var(--blue);
     font:10px var(--mono);
     opacity:.6;
 }
 .printing-card.featured .printing-card-number{color:#fff}
 .printing-card-icon{
-    width:52px;height:52px;
+    width:44px;height:44px;
     display:grid;
     place-items:center;
-    margin:4px 0 25px;
-    border-radius:12px;
+    margin:2px 0 18px;
+    border-radius:10px;
     background:var(--pale);
     color:var(--blue);
 }
@@ -302,51 +318,51 @@
     color:var(--ink);
 }
 .print-icon-symbol{
-    font-size:23px;
+    font-size:20px;
     line-height:1;
     font-weight:800;
 }
 .printing-card h3{
     margin:0;
-    max-width:270px;
-    font-size:21px;
-    line-height:1.12;
+    max-width:250px;
+    font-size:18px;
+    line-height:1.14;
     letter-spacing:-.04em;
 }
 .printing-card p{
-    max-width:300px;
-    margin:12px 0 17px;
+    max-width:280px;
+    margin:10px 0 14px;
     color:var(--muted);
-    font-size:12px;
-    line-height:1.75;
+    font-size:11.5px;
+    line-height:1.7;
 }
 .printing-card.featured p{color:rgba(255,255,255,.7)}
 .printing-card ul{
     display:grid;
-    gap:8px;
+    gap:6px;
     margin:0;
     padding:0;
     list-style:none;
 }
 .printing-card li{
     position:relative;
-    padding-left:17px;
+    padding-left:16px;
     color:var(--muted);
-    font-size:11px;
+    font-size:10.5px;
 }
 .printing-card.featured li{color:rgba(255,255,255,.78)}
 .printing-card li:before{
     content:"";
     position:absolute;
-    left:0;top:6px;
-    width:6px;height:6px;
+    left:0;top:5px;
+    width:5px;height:5px;
     border-radius:50%;
     background:var(--gold);
 }
 .featured-label{
     position:absolute;
-    left:28px;bottom:27px;
-    padding:6px 8px;
+    left:22px;bottom:21px;
+    padding:5px 7px;
     border:1px solid rgba(244,181,47,.35);
     border-radius:4px;
     color:var(--gold);
@@ -354,7 +370,10 @@
     letter-spacing:.1em;
 }
 
-/* Size section */
+/* =========================================================
+   SIZE SECTION
+========================================================= */
+
 .size-section{
     background:#fff;
     border-top:1px solid var(--line);
@@ -416,59 +435,257 @@
 }
 .text-link:hover{gap:12px}
 
-/* Machine section */
+/* =========================================================
+   MACHINES — IMAGE CARDS  — COMPACT
+========================================================= */
+
 .machine-section{
     background:linear-gradient(180deg,#f4f8fb 0%,#eaf5f8 100%);
 }
 .machine-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:46px;
-}
-.machine-card{
-    position:relative;
-    min-height:205px;
-    padding:28px;
-    border:1px solid var(--line);
-    border-radius:11px;
-    background:#fff;
-    box-shadow:0 3px 13px rgba(20,61,92,.05);
-    transition:.28s ease;
-}
-.machine-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
-}
-.machine-no{
-    position:absolute;
-    right:23px;top:22px;
-    color:var(--blue);
-    font:10px var(--mono);
-}
-.machine-card > .print-icon-symbol{
-    display:grid;
-    place-items:center;
-    width:48px;height:48px;
-    border-radius:10px;
-    background:var(--pale);
-    color:var(--blue);
-    margin-bottom:22px;
-}
-.machine-card h3{
-    margin:0;
-    font-size:18px;
-    letter-spacing:-.035em;
-}
-.machine-card p{
-    margin:9px 0 0;
-    max-width:260px;
-    color:var(--muted);
-    font-size:11px;
-    line-height:1.7;
+    gap:16px;
+    margin-top:40px;
 }
 
-/* Finishing */
+.machine-card{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 6px 22px rgba(20,61,92,.07);
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+
+    /* Scroll-reveal start state */
+    opacity:0;
+    transform:translateY(22px);
+}
+.machine-card.is-visible{
+    opacity:1;
+    transform:translateY(0);
+    transition:
+        opacity .55s ease,
+        transform .55s cubic-bezier(.22,1,.36,1),
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+.machine-card:hover{
+    transform:translateY(-6px);
+    border-color:rgba(8,112,173,.32);
+    box-shadow:0 22px 50px rgba(20,61,92,.14);
+}
+
+/* Brand accent bar at top */
+.machine-card::before{
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;
+    height:3px;
+    background:linear-gradient(90deg,var(--blue),var(--gold));
+    z-index:3;
+}
+.machine-card[data-brand="canon"]::before{background:linear-gradient(90deg,#cc0000,#e85d00)}
+.machine-card[data-brand="konica"]::before{background:linear-gradient(90deg,#0066a6,#00b4d8)}
+.machine-card[data-brand="epson"]::before{background:linear-gradient(90deg,#003399,#0071c5)}
+.machine-card[data-brand="hp"]::before{background:linear-gradient(90deg,#0096d6,#003087)}
+.machine-card[data-brand="kyocera"]::before{background:linear-gradient(90deg,#c8102e,#d62828)}
+
+/* Head: number + brand */
+.machine-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:11px 15px 8px;
+}
+.machine-no{
+    color:var(--blue);
+    font:700 10px var(--mono);
+    letter-spacing:.14em;
+    opacity:.65;
+}
+.machine-brand{
+    padding:3px 8px;
+    border-radius:20px;
+    background:var(--pale);
+    color:var(--blue);
+    font:800 9px var(--mono);
+    letter-spacing:.12em;
+}
+.machine-card[data-brand="canon"] .machine-brand{background:#fdecea;color:#cc0000}
+.machine-card[data-brand="konica"] .machine-brand{background:#e6f4fb;color:#0066a6}
+.machine-card[data-brand="epson"] .machine-brand{background:#e6eefc;color:#003399}
+.machine-card[data-brand="hp"] .machine-brand{background:#e6f2fb;color:#0067b8}
+.machine-card[data-brand="kyocera"] .machine-brand{background:#fde8ea;color:#c8102e}
+
+/* Image visual area */
+.machine-visual{
+    position:relative;
+    aspect-ratio:16 / 9;
+    overflow:hidden;
+    background:linear-gradient(135deg,#f4f8fb,#e6f1f8);
+    border-top:1px solid #eef3f8;
+    border-bottom:1px solid #eef3f8;
+}
+.machine-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .6s cubic-bezier(.22,1,.36,1);
+}
+.machine-card:hover .machine-visual img{
+    transform:scale(1.06);
+}
+
+/* Status pill */
+.machine-status{
+    position:absolute;
+    top:10px;left:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:5px;
+    padding:4px 9px;
+    border-radius:20px;
+    background:rgba(255,255,255,.94);
+    color:#1b6b59;
+    font:800 8.5px var(--mono);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+    backdrop-filter:blur(6px);
+}
+.status-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#22c55e;
+    box-shadow:0 0 0 0 rgba(34,197,94,.7);
+    animation:statusPulse 2s ease-in-out infinite;
+}
+
+/* Machine tag pill (bottom-right) */
+.machine-tag{
+    position:absolute;
+    bottom:10px;right:10px;
+    padding:4px 9px;
+    border-radius:5px;
+    background:rgba(11,79,134,.92);
+    color:#fff;
+    font:800 8.5px var(--mono);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    backdrop-filter:blur(6px);
+}
+
+/* Body */
+.machine-body{
+    padding:14px 16px 16px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+.machine-body h3{
+    margin:0 0 10px;
+    font-size:15px;
+    line-height:1.25;
+    letter-spacing:-.03em;
+    color:var(--ink);
+}
+
+/* Feature list with animated check */
+.machine-features{
+    list-style:none;
+    margin:0 0 14px;
+    padding:0;
+    display:grid;
+    gap:5px;
+}
+.machine-features li{
+    position:relative;
+    padding-left:18px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.5;
+}
+.machine-features li::before{
+    content:"";
+    position:absolute;
+    left:0;top:5px;
+    width:10px;height:10px;
+    border-radius:3px;
+    background:var(--pale);
+    border:1px solid rgba(8,112,173,.2);
+    transition:background .25s ease;
+}
+.machine-features li::after{
+    content:"";
+    position:absolute;
+    left:3px;top:6px;
+    width:4px;height:6px;
+    border:solid var(--blue);
+    border-width:0 2px 2px 0;
+    transform:rotate(45deg) scale(0);
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.machine-card.is-visible .machine-features li::after{
+    transform:rotate(45deg) scale(1);
+}
+.machine-card.is-visible .machine-features li:nth-child(1)::after{transition-delay:.15s}
+.machine-card.is-visible .machine-features li:nth-child(2)::after{transition-delay:.25s}
+.machine-card.is-visible .machine-features li:nth-child(3)::after{transition-delay:.35s}
+.machine-card.is-visible .machine-features li:nth-child(4)::after{transition-delay:.45s}
+.machine-card.is-visible .machine-features li:nth-child(5)::after{transition-delay:.55s}
+
+/* CTA */
+.machine-cta{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:7px;
+    padding:9px 12px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    background:#fff;
+    color:var(--blue);
+    font-size:10.5px;
+    font-weight:800;
+    text-decoration:none;
+    transition:background .25s ease, border-color .25s ease, color .25s ease, transform .2s ease;
+}
+.machine-cta span{
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.machine-cta:hover{
+    background:var(--blue);
+    border-color:var(--blue);
+    color:#fff;
+    transform:translateY(-2px);
+}
+.machine-cta:hover span{
+    transform:translate(3px,-3px);
+}
+
+/* Image fallback */
+.machine-visual.no-image::after{
+    content:"▣";
+    position:absolute;
+    inset:0;
+    display:grid;
+    place-items:center;
+    font-size:52px;
+    color:rgba(11,79,134,.35);
+    background:linear-gradient(135deg,#eef4fa,#dde9f5);
+}
+
+/* =========================================================
+   FINISHING  — COMPACT
+========================================================= */
+
 .finishing-section{
     background:#fff;
 }
@@ -481,11 +698,11 @@
 .finishing-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:12px;
+    gap:10px;
 }
 .finish-card{
-    min-height:145px;
-    padding:22px;
+    min-height:120px;
+    padding:18px;
     border:1px solid var(--line);
     border-radius:10px;
     background:#fff;
@@ -498,21 +715,25 @@
 }
 .finish-card .print-icon-symbol{
     display:block;
-    margin-bottom:16px;
+    margin-bottom:12px;
     color:var(--blue);
+    font-size:18px;
 }
 .finish-card h3{
     margin:0;
-    font-size:15px;
+    font-size:14px;
 }
 .finish-card p{
-    margin:7px 0 0;
+    margin:6px 0 0;
     color:var(--muted);
-    font-size:10px;
-    line-height:1.6;
+    font-size:9.5px;
+    line-height:1.55;
 }
 
-/* Process */
+/* =========================================================
+   PROCESS
+========================================================= */
+
 .process-section{
     background:var(--bg);
 }
@@ -551,7 +772,10 @@
     line-height:1.75;
 }
 
-/* CTA */
+/* =========================================================
+   CTA
+========================================================= */
+
 .printing-cta{
     position:relative;
     overflow:hidden;
@@ -628,7 +852,10 @@
 }
 .printing-cta .btn-light:hover{background:rgba(255,255,255,.1)}
 
-/* Contact */
+/* =========================================================
+   CONTACT
+========================================================= */
+
 .print-contact{
     background:#fff;
     border-bottom:1px solid var(--line);
@@ -644,6 +871,7 @@
     gap:14px;
     align-items:flex-start;
 }
+.contact-info-item > i,
 .contact-info-item > .print-icon-symbol{
     display:grid;
     place-items:center;
@@ -670,21 +898,10 @@
 }
 .contact-info-item a:hover{color:var(--blue)}
 
-/* Animations */
-@media (prefers-reduced-motion:no-preference){
-    .printing-hero-content{
-        animation:printFadeUp .7s ease both;
-    }
-    .printing-hero-visual{
-        animation:printFloatIn .8s .08s ease both;
-    }
-    .printing-card,.machine-card,.finish-card,.process-item{
-        animation:printFadeUp .55s ease both;
-    }
-    .printing-card:nth-child(2),.machine-card:nth-child(2),.finish-card:nth-child(2){animation-delay:.05s}
-    .printing-card:nth-child(3),.machine-card:nth-child(3),.finish-card:nth-child(3){animation-delay:.1s}
-    .printing-card:nth-child(4),.machine-card:nth-child(4),.finish-card:nth-child(4){animation-delay:.15s}
-}
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
 @keyframes printFadeUp{
     from{opacity:0;transform:translateY(18px)}
     to{opacity:1;transform:none}
@@ -693,13 +910,57 @@
     from{opacity:0;transform:translateX(25px)}
     to{opacity:1;transform:none}
 }
+@keyframes paperFloat1{
+    0%,100%{transform:rotate(-12deg) translateY(0)}
+    50%{transform:rotate(-13deg) translateY(-6px)}
+}
+@keyframes paperFloat2{
+    0%,100%{transform:rotate(-4deg) translateY(0)}
+    50%{transform:rotate(-5deg) translateY(-8px)}
+}
+@keyframes paperFloat3{
+    0%,100%{transform:rotate(4deg) translateY(0)}
+    50%{transform:rotate(5deg) translateY(-6px)}
+}
+@keyframes largeFormatFloat{
+    0%,100%{transform:rotate(5deg) translateY(0)}
+    50%{transform:rotate(5.5deg) translateY(-8px)}
+}
+@keyframes labelPulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.5;transform:scale(1.2)}
+}
+@keyframes statusPulse{
+    0%{box-shadow:0 0 0 0 rgba(34,197,94,.7)}
+    70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}
+    100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+}
 
-/* Responsive */
+@media (prefers-reduced-motion:no-preference){
+    .printing-hero-content{
+        animation:printFadeUp .7s ease both;
+    }
+    .printing-hero-visual{
+        animation:printFloatIn .8s .08s ease both;
+    }
+    .printing-card,.finish-card,.process-item{
+        animation:printFadeUp .55s ease both;
+    }
+    .printing-card:nth-child(2),.finish-card:nth-child(2){animation-delay:.05s}
+    .printing-card:nth-child(3),.finish-card:nth-child(3){animation-delay:.1s}
+    .printing-card:nth-child(4),.finish-card:nth-child(4){animation-delay:.15s}
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
 @media(max-width:1050px){
     .printing-hero-grid{grid-template-columns:1fr;gap:30px}
     .printing-hero-content{max-width:780px}
     .printing-hero-visual{max-width:650px;width:100%;margin:0 auto}
     .printing-service-grid{grid-template-columns:repeat(2,1fr)}
+    .machine-grid{grid-template-columns:repeat(2,1fr)}
     .size-layout,.finishing-layout{grid-template-columns:1fr;gap:40px}
     .printing-cta-inner{align-items:flex-start;flex-direction:column}
     .print-contact-grid{grid-template-columns:1fr 1fr}
@@ -747,4 +1008,35 @@
     .printing-cta-inner{padding:52px 0}
     .cta-actions{width:100%;flex-direction:column}
     .cta-actions a{width:100%}
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce){
+    .printing-page *,
+    .printing-hero *,
+    .printing-hero-visual *{
+        animation:none !important;
+    }
+
+    .machine-card{
+        opacity:1;
+        transform:none;
+    }
+    .machine-card.is-visible{
+        transition:none;
+    }
+    .machine-features li::after{
+        transform:rotate(45deg) scale(1) !important;
+    }
+    .printing-hero-visual .paper-one,
+    .printing-hero-visual .paper-two,
+    .printing-hero-visual .paper-three,
+    .large-format-paper,
+    .hero-machine-label:before,
+    .status-dot{
+        animation:none !important;
+    }
 }

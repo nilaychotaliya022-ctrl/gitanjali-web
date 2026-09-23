@@ -3,12 +3,12 @@
 
 
 {% block title %}
-Stationery Products | Gitanjali Stationery & Rubber Stamp
+All Products | Gitanjali Stationery & Rubber Stamp
 {% endblock %}
 
 {% block description %}
-Shop stationery by category — Art & Craft, Office Stationery, School Stationery,
-Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajkot.
+Every stationery product we stock — school, office, art & craft, papers,
+files, accounts and supplies. Gitanjali Stationery & Rubber Stamp, Rajkot.
 {% endblock %}
 
 
@@ -26,61 +26,51 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
        HERO
   ========================================== -->
 
-  <section class="stationery-hero">
+  <section class="stationery-hero all-products-hero">
 
     <span class="hero-watermark" aria-hidden="true">G</span>
 
     <div class="container-wide stationery-hero-grid">
 
-
       <div class="stationery-hero-content">
 
-        <span class="stationery-eyebrow">
-          GITANJALI · STATIONERY
-        </span>
+        <span class="stationery-eyebrow">FULL CATALOG</span>
 
         <h1>
-          Everything your
-          <span>desk needs.</span>
+          Every product.<br>
+          <span>One place.</span>
         </h1>
 
         <p>
-          Browse six curated collections — from school essentials
-          to professional office supplies, papers, accounts and
-          creative art materials.
+          The complete list of what we currently stock — school, office,
+          art &amp; craft, papers, files, accounts and general supplies.
+          Filter by category or search by name.
         </p>
 
 
         <div class="hero-actions">
-
-          <a href="#categories" class="stationery-btn stationery-btn-primary">
-            Explore categories <span>↓</span>
+          <a href="#products" class="stationery-btn stationery-btn-primary">
+            Browse all products <span>↓</span>
           </a>
-
           <a href="{% url 'contact' %}" class="stationery-btn stationery-btn-light">
             Bulk enquiry <span>↗</span>
           </a>
-
         </div>
 
 
         <div class="hero-trust">
-
+          <div>
+            <strong>{{ total_products }}</strong>
+            <span>Total products</span>
+          </div>
           <div>
             <strong>{{ categories|length }}</strong>
-            <span>Collections</span>
+            <span>Categories</span>
           </div>
-
           <div>
-            <strong>{{ total_products }}+</strong>
-            <span>Products</span>
+            <strong>{{ brands|length }}</strong>
+            <span>Brands</span>
           </div>
-
-          <div>
-            <strong>Rajkot</strong>
-            <span>Local service</span>
-          </div>
-
         </div>
 
       </div>
@@ -95,20 +85,17 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
 
           <div class="hero-card-top">
             <span>GITANJALI</span>
-            <span>EST. RAJKOT</span>
+            <span>CATALOG</span>
           </div>
 
           <div class="hero-paper-stack">
-
             <div class="paper paper-back"></div>
             <div class="paper paper-middle"></div>
-
             <div class="paper paper-front">
               <div class="paper-lines"></div>
-              <strong>WRITE.</strong>
-              <span>CREATE.</span>
+              <strong>ALL</strong>
+              <span>PRODUCTS</span>
             </div>
-
           </div>
 
           <div class="hero-card-bottom">
@@ -128,109 +115,6 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
 
 
   <!-- =========================================
-       CATEGORY COLLECTIONS
-  ========================================== -->
-
-  <section class="categories-section" id="categories">
-
-    <div class="container-wide">
-
-      <div class="section-heading centered">
-
-        <span class="section-label">SHOP BY CATEGORY</span>
-
-        <h2>
-          Six collections.<br>
-          <em>One trusted store.</em>
-        </h2>
-
-      </div>
-
-
-      <div class="category-grid">
-
-        {% for category in categories %}
-
-          <a
-            href="?cat={{ category.slug }}#products"
-            class="category-tile"
-            style="--tile-index: {{ forloop.counter0 }};">
-
-            <span class="tile-index">G—0{{ forloop.counter }}</span>
-
-            <span class="tile-icon" aria-hidden="true">
-              {{ category.icon|default:"▣" }}
-            </span>
-
-            <span class="tile-body">
-              <strong class="tile-title">{{ category.name }}</strong>
-              <small class="tile-copy">{{ category.blurb }}</small>
-            </span>
-
-            <span class="tile-count">
-              <strong>{{ category.products.count }}</strong> items
-            </span>
-
-            <span class="tile-arrow" aria-hidden="true">→</span>
-
-            <span class="tile-ring" aria-hidden="true"></span>
-
-          </a>
-
-        {% endfor %}
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- =========================================
-       BRANDS
-  ========================================== -->
-
-  {% if brands %}
-  <section class="brands-section">
-
-    <div class="container-wide">
-
-      <div class="section-heading centered">
-
-        <span class="section-label">BRANDS WE STOCK</span>
-
-        <h2>Trusted names. <em>Real quality.</em></h2>
-
-      </div>
-
-
-      <div class="brand-grid">
-
-        {% for brand in brands %}
-
-          <a
-            href="?q={{ brand|urlencode }}#products"
-            class="brand-card">
-
-            <span class="brand-dot"></span>
-            <strong>{{ brand }}</strong>
-            <small>View products</small>
-
-          </a>
-
-        {% endfor %}
-
-      </div>
-
-    </div>
-
-  </section>
-  {% endif %}
-
-
-
-  <!-- =========================================
        PRODUCTS
   ========================================== -->
 
@@ -242,37 +126,28 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
       <div class="products-header">
 
         <div class="section-heading">
-
-          <span class="section-label">OUR COLLECTION</span>
-
-          <h2>Stationery for every task</h2>
-
+          <span class="section-label">FULL CATALOG</span>
+          <h2>Everything we stock</h2>
         </div>
 
 
         <div class="request-box">
-
           <span class="request-icon">✓</span>
-
           <div>
             <small>Your request</small>
-            <strong>
-              <span data-request-count>0</span> items
-            </strong>
+            <strong><span data-request-count>0</span> items</strong>
           </div>
-
           <a href="{% url 'contact' %}">Send enquiry →</a>
-
         </div>
 
       </div>
 
 
 
-      <!-- SEARCH + FILTER TOOLBAR (server-side via GET) -->
+      <!-- SEARCH + FILTER TOOLBAR -->
       <form
         method="get"
-        action="{% url 'stationery' %}"
+        action="{% url 'all_products' %}"
         class="stationery-toolbar"
         id="stationery-form">
 
@@ -285,20 +160,16 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
             id="product-search"
             name="q"
             value="{{ q }}"
-            placeholder="Search notebooks, pens, files..."
+            placeholder="Search any product..."
             autocomplete="off">
 
           {% if q %}
             <a
-              href="{% url 'stationery' %}{% if active_category %}?cat={{ active_category }}{% endif %}#products"
+              href="{% url 'all_products' %}{% if active_category %}?cat={{ active_category }}{% endif %}#products"
               class="clear-search visible"
               aria-label="Clear search">×</a>
           {% else %}
-            <button
-              type="button"
-              class="clear-search"
-              id="clear-search"
-              aria-label="Clear search">×</button>
+            <button type="button" class="clear-search" id="clear-search" aria-label="Clear search">×</button>
           {% endif %}
 
         </div>
@@ -311,26 +182,24 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
           <div class="filter-list">
 
             <a
-              href="{% url 'stationery' %}{% if q %}?q={{ q|urlencode }}{% endif %}#products"
+              href="{% url 'all_products' %}{% if q %}?q={{ q|urlencode }}{% endif %}#products"
               class="filter-chip {% if not active_category %}active{% endif %}">
               All
             </a>
 
             {% for category in categories %}
-
               <a
                 href="?cat={{ category.slug }}{% if q %}&q={{ q|urlencode }}{% endif %}#products"
                 class="filter-chip {% if active_category == category.slug %}active{% endif %}">
                 {{ category.name }}
               </a>
-
             {% endfor %}
 
           </div>
 
 
           <a
-            href="{% url 'stationery' %}#products"
+            href="{% url 'all_products' %}#products"
             class="reset-filters-btn"
             id="reset-filters">
 
@@ -341,14 +210,12 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
 
         </div>
 
-        <!-- preserve category on submit -->
         <input type="hidden" name="cat" value="{{ active_category }}">
 
       </form>
 
 
 
-      <!-- ACTIVE FILTER MESSAGE -->
       <div class="active-filter-message" id="active-filter-message" aria-live="polite">
 
         {% if q or active_category %}
@@ -356,11 +223,11 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
           {% if active_category and active_category != "all" %}
             in <strong>{{ active_category }}</strong>
           {% endif %}
-          {% if q %}
-            for “{{ q }}”
-          {% endif %}.
+          {% if q %} for “{{ q }}”{% endif %}
+          — page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
         {% else %}
-          Showing {{ page_obj.paginator.count }} products.
+          Showing all {{ page_obj.paginator.count }} products
+          — page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
         {% endif %}
 
       </div>
@@ -447,29 +314,58 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
 
 
       <!-- =========================================
-           MORE PRODUCTS BUTTON → /products/
+           PAGINATION
       ========================================== -->
-{% if page_obj.paginator.count > 0 %}
-<div class="more-products-wrap">
 
-  <a
-    href="{% url 'all_products' %}"
-    class="more-products-btn">
+      {% if page_obj.paginator.num_pages > 1 %}
+        <nav class="g-pagination" aria-label="Product pages">
 
-    <span class="more-products-text">
-     For More products
-    </span>
+          {% if page_obj.has_previous %}
+            <a class="g-page-btn"
+               href="?page={{ page_obj.previous_page_number }}{% if q %}&q={{ q|urlencode }}{% endif %}{% if active_category %}&cat={{ active_category }}{% endif %}#products">
+              ← Prev
+            </a>
+          {% else %}
+            <span class="g-page-btn is-disabled">← Prev</span>
+          {% endif %}
 
-    <span class="more-products-icon" aria-hidden="true">→</span>
 
-  </a>
+          {% for num in page_obj.paginator.page_range %}
 
-  <small class="more-products-hint">
-    Search, filter and request directly from the full catalog.
-  </small>
+            {% if num == page_obj.number %}
+              <span class="g-page-btn is-current">{{ num }}</span>
 
-</div>
-{% endif %}
+            {% elif num > page_obj.number|add:"-3" and num < page_obj.number|add:"3" %}
+              <a class="g-page-btn"
+                 href="?page={{ num }}{% if q %}&q={{ q|urlencode }}{% endif %}{% if active_category %}&cat={{ active_category }}{% endif %}#products">
+                {{ num }}
+              </a>
+
+            {% elif num == 1 or num == page_obj.paginator.num_pages %}
+              <a class="g-page-btn"
+                 href="?page={{ num }}{% if q %}&q={{ q|urlencode }}{% endif %}{% if active_category %}&cat={{ active_category }}{% endif %}#products">
+                {{ num }}
+              </a>
+
+            {% elif num == page_obj.number|add:"-3" or num == page_obj.number|add:"3" %}
+              <span class="g-page-ellipsis">…</span>
+
+            {% endif %}
+
+          {% endfor %}
+
+
+          {% if page_obj.has_next %}
+            <a class="g-page-btn"
+               href="?page={{ page_obj.next_page_number }}{% if q %}&q={{ q|urlencode }}{% endif %}{% if active_category %}&cat={{ active_category }}{% endif %}#products">
+              Next →
+            </a>
+          {% else %}
+            <span class="g-page-btn is-disabled">Next →</span>
+          {% endif %}
+
+        </nav>
+      {% endif %}
 
 
 
@@ -532,10 +428,7 @@ Office Accounts, Papers and Supplies. Gitanjali Stationery & Rubber Stamp, Rajko
 
 
 
-  <!-- =========================================
-       TOAST
-  ========================================== -->
-
+  <!-- TOAST -->
   <div class="stationery-toast" id="stationery-toast" role="status" aria-live="polite">
     <span class="toast-check">✓</span>
     <div>

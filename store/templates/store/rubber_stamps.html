@@ -10,26 +10,17 @@
 {% block content %}
 
 <!-- =========================================================
-     RUBBER STAMP HERO
+     HERO
 ========================================================= -->
-
 <section class="stamp-hero">
-
     <div class="stamp-hero-orbit stamp-orbit-one"></div>
     <div class="stamp-hero-orbit stamp-orbit-two"></div>
     <div class="stamp-hero-glow"></div>
 
     <div class="container-wide stamp-hero-inner">
 
-        <!-- =================================================
-             LEFT CONTENT
-        ================================================= -->
-
         <div class="stamp-hero-content stamp-reveal">
-
-            <span class="stamp-eyebrow">
-                GITANJALI STAMPING DESK
-            </span>
+            <span class="stamp-eyebrow">GITANJALI STAMPING DESK</span>
 
             <h1>
                 Professional stamps
@@ -43,618 +34,432 @@
             </p>
 
             <div class="stamp-hero-actions">
-
-                <a href="{% url 'contact' %}"
-                   class="stamp-btn stamp-btn-primary">
-                    Get a Custom Stamp
-                    <span>↗</span>
+                <a href="{% url 'contact' %}" class="stamp-btn stamp-btn-primary">
+                    Get a Custom Stamp <span>↗</span>
                 </a>
-
-                <a href="#stamp-types"
-                   class="stamp-btn stamp-btn-outline">
-                    Explore Stamps
-                    <span>↓</span>
+                <a href="#stamp-types" class="stamp-btn stamp-btn-outline">
+                    Explore Stamps <span>↓</span>
                 </a>
-
             </div>
 
-            <div class="stamp-trust-row">
-
+            <div class="stamp-trust-row" data-counters>
                 <div>
-                    <strong>01</strong>
-                    <span>Custom Design</span>
+                    <strong data-count="9">00</strong>
+                    <span>Stamp Types</span>
                 </div>
-
                 <div>
-                    <strong>02</strong>
-                    <span>Professional Finish</span>
+                    <strong data-count="30">00</strong>
+                    <span>Years of Trust</span>
                 </div>
-
                 <div>
-                    <strong>03</strong>
-                    <span>Made to Requirement</span>
+                    <strong data-count="100">00</strong>
+                    <span>Custom Made</span>
                 </div>
-
             </div>
-
         </div>
 
+        <!-- HERO VISUAL -->
+        <div class="stamp-hero-visual stamp-reveal delay-2" data-tilt>
 
-        <!-- =================================================
-             RIGHT HERO VISUAL
-        ================================================= -->
-
-        <div class="stamp-hero-visual stamp-reveal delay-2">
-
-            <!-- Back document -->
             <div class="stamp-paper paper-back">
                 <span>COMPANY</span>
                 <strong>DOCUMENT</strong>
                 <small>OFFICIAL USE</small>
             </div>
 
-            <!-- Middle document -->
             <div class="stamp-paper paper-middle">
                 <span>GITANJALI</span>
                 <strong>APPROVED</strong>
                 <small>EST. 1992</small>
             </div>
 
-            <!-- Main stamp showcase -->
             <div class="stamp-showcase-card">
-
                 <div class="showcase-top">
                     <span>GITANJALI</span>
                     <span>EST. 1992</span>
                 </div>
 
-                <div class="stamp-circle">
+                <div class="stamp-circle" data-press>
                     <span>YOUR</span>
                     <strong>MARK</strong>
                     <span>YOUR BRAND</span>
                 </div>
 
-                <div class="showcase-bottom">
-                    CUSTOM RUBBER STAMP
-                </div>
-
+                <div class="showcase-bottom">CUSTOM RUBBER STAMP</div>
             </div>
 
-            <!-- Floating self ink -->
             <div class="floating-stamp floating-one">
-                <strong>SELF</strong>
-                <span>INK</span>
+                <strong>SELF</strong><span>INK</span>
             </div>
-
-            <!-- Floating logo -->
             <div class="floating-stamp floating-two">
-                <strong>LOGO</strong>
-                <span>STAMP</span>
+                <strong>LOGO</strong><span>STAMP</span>
             </div>
 
-            <!-- Feature badge -->
             <div class="stamp-feature-badge">
                 <span class="badge-dot"></span>
                 <strong>SELF-INK • PRE-INK • CUSTOM</strong>
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
 <!-- =========================================================
-     INTRO / STAMP RANGE
+     MARQUEE TICKER
 ========================================================= -->
+<div class="stamp-ticker" aria-hidden="true">
+    <div class="stamp-ticker-track">
+        <span>SELF-INKING</span><i>◆</i>
+        <span>PRE-INKED</span><i>◆</i>
+        <span>COMPANY SEAL</span><i>◆</i>
+        <span>DATER STAMP</span><i>◆</i>
+        <span>LOGO STAMP</span><i>◆</i>
+        <span>CUSTOM SIZE</span><i>◆</i>
+        <span>SELF-INKING</span><i>◆</i>
+        <span>PRE-INKED</span><i>◆</i>
+        <span>COMPANY SEAL</span><i>◆</i>
+        <span>DATER STAMP</span><i>◆</i>
+        <span>LOGO STAMP</span><i>◆</i>
+        <span>CUSTOM SIZE</span><i>◆</i>
+    </div>
+</div>
 
+
+<!-- =========================================================
+     STAMP RANGE (IMAGE CARDS)
+========================================================= -->
 <section class="stamp-section stamp-intro">
-
     <div class="container-wide">
 
         <div class="stamp-section-heading stamp-reveal">
-
             <div>
-
-                <span class="stamp-eyebrow dark">
-                    OUR STAMP RANGE
-                </span>
-
+                <span class="stamp-eyebrow dark">OUR STAMP RANGE</span>
                 <h2>
                     Choose the right stamp
                     <em>for your work.</em>
                 </h2>
-
             </div>
-
             <p>
                 Need a simple office stamp or a professional branded stamp?
                 Bring us your text, logo or design and we will help you choose
                 the right stamp type, size and layout.
             </p>
-
         </div>
-
-
-        <!-- =================================================
-             STAMP CARDS
-        ================================================= -->
 
         <div class="stamp-products" id="stamp-types">
 
-            <!-- 01 REGULAR -->
-
+            {% comment %} Card 1 — Regular {% endcomment %}
             <article class="stamp-card stamp-reveal">
-
-                <div class="stamp-card-number">01</div>
-
-                <div class="stamp-card-icon">
-                    <span>R</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/regular.png' %}"
+                         alt="Regular Rubber Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">01</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    EVERYDAY OFFICE
-                </span>
-
-                <h3>Regular Rubber Stamp</h3>
-
-                <p>
-                    A dependable traditional rubber stamp for office,
-                    documents, bills, files, forms and everyday business work.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Custom text &amp; sizes</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">EVERYDAY OFFICE</span>
+                    <h3>Regular Rubber Stamp</h3>
+                    <p>A dependable traditional rubber stamp for office, documents, bills, files and forms.</p>
+                    <div class="stamp-card-footer">
+                        <span>Custom text &amp; sizes</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 02 PRE-INKED -->
-
+            {% comment %} Card 2 — Pre-Inked {% endcomment %}
             <article class="stamp-card stamp-card-featured stamp-reveal delay-1">
-
-                <div class="stamp-card-number">02</div>
-
-                <div class="stamp-card-icon professional-icon">
-                    <span>P</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/pre ink.png' %}"
+                         alt="Pre-Inked Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">02</span>
+                    <span class="stamp-card-flag">Popular</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    PROFESSIONAL CHOICE
-                </span>
-
-                <h3>Pre-Inked Stamp</h3>
-
-                <p>
-                    A clean and professional branded stamp with a sharp
-                    impression. Ideal for businesses, professionals and
-                    official documents.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Premium appearance</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">PROFESSIONAL CHOICE</span>
+                    <h3>Pre-Inked Stamp</h3>
+                    <p>A clean, professional branded stamp with a sharp impression — ideal for official documents.</p>
+                    <div class="stamp-card-footer">
+                        <span>Premium appearance</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 03 SELF INKING -->
-
+            {% comment %} Card 3 — Self Inking {% endcomment %}
             <article class="stamp-card stamp-reveal delay-2">
-
-                <div class="stamp-card-number">03</div>
-
-                <div class="stamp-card-icon">
-                    <span>S</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/self ink.png' %}"
+                         alt="Self-Inking Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">03</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    QUICK &amp; CLEAN
-                </span>
-
-                <h3>Self-Inking Stamp</h3>
-
-                <p>
-                    Fast, convenient and mess-free. Perfect for repeated
-                    stamping at counters, offices, schools and businesses.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Easy repeated stamping</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">QUICK &amp; CLEAN</span>
+                    <h3>Self-Inking Stamp</h3>
+                    <p>Fast, convenient and mess-free. Perfect for repeated stamping at counters and offices.</p>
+                    <div class="stamp-card-footer">
+                        <span>Easy repeated stamping</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 04 BANK DATER -->
-
+            {% comment %} Card 4 — Bank Dater {% endcomment %}
             <article class="stamp-card stamp-reveal">
-
-                <div class="stamp-card-number">04</div>
-
-                <div class="stamp-card-icon">
-                    <span>B</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/bank dater.png' %}"
+                         alt="Bank Dater Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">04</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    BANK &amp; OFFICE
-                </span>
-
-                <h3>Bank Dater Stamp</h3>
-
-                <p>
-                    Date and banking stamps designed for office records,
-                    documents, receipts and daily banking work.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Date-based stamping</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">BANK &amp; OFFICE</span>
+                    <h3>Bank Dater Stamp</h3>
+                    <p>Date and banking stamps designed for office records, receipts and daily banking work.</p>
+                    <div class="stamp-card-footer">
+                        <span>Date-based stamping</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 05 COMPANY SEAL -->
-
+            {% comment %} Card 5 — Company Seal {% endcomment %}
             <article class="stamp-card stamp-reveal delay-1">
-
-                <div class="stamp-card-number">05</div>
-
-                <div class="stamp-card-icon seal-icon">
-                    <span>CS</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/company seal.png' %}"
+                         alt="Company Seal Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">05</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    OFFICIAL
-                </span>
-
-                <h3>Company Seal Stamp</h3>
-
-                <p>
-                    Professional company seals for businesses, firms,
-                    organisations and official documentation.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Business &amp; official use</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">OFFICIAL</span>
+                    <h3>Company Seal Stamp</h3>
+                    <p>Professional company seals for businesses, firms, organisations and official documentation.</p>
+                    <div class="stamp-card-foo`ter">
+                        <span>Business &amp; official use</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 06 LOGO -->
-
-            <article class="stamp-card stamp-card-featured stamp-reveal delay-2">
-
-                <div class="stamp-card-number">06</div>
-
-                <div class="stamp-card-icon logo-icon">
-                    <span>LG</span>
+            {% comment %} Card 6 — Custom Logo {% endcomment %}
+            <article class="stamp-card stamp-card-featured stamp-reveal delay-`2">
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/logo.png' %}"
+                         alt="Custom Logo Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">06</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    BRANDING
-                </span>
-
-                <h3>Custom Logo Stamp</h3>
-
-                <p>
-                    Turn your company logo, shop logo or brand mark into a
-                    professional rubber stamp with a clean impression.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Logo &amp; artwork supported</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">BRANDING</span>
+                    <h3>Custom Logo Stamp</h3>
+                    <p>Turn your company logo, shop logo or brand mark into a professional rubber stamp.</p>
+                    <div class="stamp-card-footer">
+                        <span>Logo &amp; artwork supported</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 07 CUSTOM DESIGN -->
-
+            {% comment %} Card 7 — Custom Design {% endcomment %}
             <article class="stamp-card stamp-reveal">
-
-                <div class="stamp-card-number">07</div>
-
-                <div class="stamp-card-icon">
-                    <span>CD</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/design stamp.png' %}"
+                         alt="Custom Design Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">07</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    CUSTOM SIZE
-                </span>
-
-                <h3>Custom Design Stamp</h3>
-
-                <p>
-                    Have a special layout or larger requirement? We make
-                    custom stamp designs according to your size and artwork.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Made to your requirement</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">CUSTOM SIZE</span>
+                    <h3>Custom Design Stamp</h3>
+                    <p>Have a special layout or larger requirement? We make custom stamps to your size.</p>
+                    <div class="stamp-card-footer">
+                        <span>Made to your requirement</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
-
-            <!-- 08 DATER -->
-
+            {% comment %} Card 8 — Dater {% endcomment %}
             <article class="stamp-card stamp-reveal delay-1">
-
-                <div class="stamp-card-number">08</div>
-
-                <div class="stamp-card-icon">
-                    <span>D</span>
+                <div class="stamp-card-media">
+                    <img src="{% static 'store/images/stamps/dater.png' %}"
+                         alt="Dater Stamp" loading="lazy"
+                         onerror="this.classList.add('img-fallback')">
+                    <span class="stamp-card-number">08</span>
                 </div>
-
-                <span class="stamp-card-category">
-                    DATE STAMP
-                </span>
-
-                <h3>Dater Stamp</h3>
-
-                <p>
-                    Practical date stamps for invoices, records, paperwork,
-                    receiving desks, offices and document management.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Useful office essential</span>
-                    <a href="{% url 'contact' %}">Enquire →</a>
+                <div class="stamp-card-body">
+                    <span class="stamp-card-category">DATE STAMP</span>
+                    <h3>Dater Stamp</h3>
+                    <p>Practical date stamps for invoices, records, paperwork, receiving desks and offices.</p>
+                    <div class="stamp-card-footer">
+                        <span>Useful office essential</span>
+                        <a href="{% url 'contact' %}">Enquire →</a>
+                    </div>
                 </div>
-
             </article>
 
+{% comment %} Card 9 — More (with video + sound toggle) {% endcomment %}
+<article class="stamp-card stamp-card-dark stamp-reveal delay-2">
+    <div class="stamp-card-media stamp-card-media-dark">
+        <video
+            class="stamp-card-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="{% static 'store/images/stamps/more-poster.jpg' %}"
+            aria-hidden="true">
+            <source src="{% static 'store/videos/more-stamps.mp4' %}" type="video/mp4">
+        </video>
 
-            <!-- 09 MORE -->
+        <button
+            class="stamp-card-sound"
+            type="button"
+            aria-label="Toggle sound"
+            aria-pressed="false">
+            <span class="sound-off" aria-hidden="true">🔇</span>
+            <span class="sound-on" aria-hidden="true">🔊</span>
+        </button>
 
-            <article class="stamp-card stamp-card-dark stamp-reveal delay-2">
-
-                <div class="stamp-card-number">09</div>
-
-                <div class="stamp-card-icon more-icon">
-                    <span>+</span>
-                </div>
-
-                <span class="stamp-card-category">
-                    MORE OPTIONS
-                </span>
-
-                <h3>More Custom Stamps</h3>
-
-                <p>
-                    Need something different? Tell us what you need and
-                    we will help with the right stamp type, shape and size.
-                </p>
-
-                <div class="stamp-card-footer">
-                    <span>Ask our stamp team</span>
-                    <a href="{% url 'contact' %}">Contact →</a>
-                </div>
-
-            </article>
+        <span class="stamp-card-number">09</span>
+    </div>
+    <div class="stamp-card-body">
+        <span class="stamp-card-category">MORE OPTIONS</span>
+        <h3>More Custom Stamps</h3>
+        <p>Need something different? Tell us what you need and we'll find the right stamp for you.</p>
+        <div class="stamp-card-footer">
+            <span>Ask our stamp team</span>
+            <a href="{% url 'contact' %}">Contact →</a>
+        </div>
+    </div>
+</article>
 
         </div>
-
     </div>
-
 </section>
 
 
 <!-- =========================================================
-     PROFESSIONAL STAMP SECTION
+     PROFESSIONAL SECTION
 ========================================================= -->
-
 <section class="professional-stamp-section">
-
     <div class="container-wide">
-
         <div class="professional-stamp-grid">
 
             <div class="professional-copy stamp-reveal">
-
-                <span class="stamp-eyebrow">
-                    A PROFESSIONAL IMPRESSION
-                </span>
-
+                <span class="stamp-eyebrow">A PROFESSIONAL IMPRESSION</span>
                 <h2>
                     Your stamp should look
                     <em>as professional as your business.</em>
                 </h2>
-
                 <p>
-                    For customers who want a more premium appearance,
-                    our pre-inked stamps provide a clean, sharp and
-                    professional impression that works especially well
-                    with logos, company names and branded layouts.
+                    For customers who want a more premium appearance, our pre-inked
+                    stamps provide a clean, sharp and professional impression that
+                    works especially well with logos, company names and branded layouts.
                 </p>
-
-                <a href="{% url 'contact' %}"
-                   class="stamp-btn stamp-btn-light">
+                <a href="{% url 'contact' %}" class="stamp-btn stamp-btn-light">
                     Ask About Pre-Inked Stamps →
                 </a>
-
             </div>
 
-
             <div class="professional-points stamp-reveal delay-2">
-
                 <div class="professional-point">
-
                     <strong>01</strong>
-
                     <div>
                         <h3>Sharp Impression</h3>
-                        <p>
-                            Designed for clean and readable stamping.
-                        </p>
+                        <p>Designed for clean and readable stamping.</p>
                     </div>
-
                 </div>
-
-
                 <div class="professional-point">
-
                     <strong>02</strong>
-
                     <div>
                         <h3>Professional Look</h3>
-                        <p>
-                            Ideal for branded and official business use.
-                        </p>
+                        <p>Ideal for branded and official business use.</p>
                     </div>
-
                 </div>
-
-
                 <div class="professional-point">
-
                     <strong>03</strong>
-
                     <div>
                         <h3>Custom Artwork</h3>
-                        <p>
-                            Add your logo, name, address or custom design.
-                        </p>
+                        <p>Add your logo, name, address or custom design.</p>
                     </div>
-
                 </div>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
 <!-- =========================================================
      HOW IT WORKS
 ========================================================= -->
-
 <section class="stamp-section">
-
     <div class="container-wide">
 
         <div class="stamp-section-heading centered stamp-reveal">
-
-            <span class="stamp-eyebrow dark">
-                SIMPLE PROCESS
-            </span>
-
+            <span class="stamp-eyebrow dark">SIMPLE PROCESS</span>
             <h2>
                 From idea to
                 <em>finished stamp.</em>
             </h2>
-
         </div>
 
-
         <div class="stamp-process">
-
             <div class="process-step stamp-reveal">
-
                 <span>01</span>
-
                 <h3>Share Your Details</h3>
-
-                <p>
-                    Send your text, logo, artwork or rough idea.
-                </p>
-
+                <p>Send your text, logo, artwork or rough idea.</p>
             </div>
-
-
             <div class="process-step stamp-reveal delay-1">
-
                 <span>02</span>
-
                 <h3>Choose Your Stamp</h3>
-
-                <p>
-                    We help you select the right type and size.
-                </p>
-
+                <p>We help you select the right type and size.</p>
             </div>
-
-
             <div class="process-step stamp-reveal delay-2">
-
                 <span>03</span>
-
                 <h3>Design &amp; Check</h3>
-
-                <p>
-                    Layout, spacing and readability are checked.
-                </p>
-
+                <p>Layout, spacing and readability are checked.</p>
             </div>
-
-
             <div class="process-step stamp-reveal delay-3">
-
                 <span>04</span>
-
                 <h3>Make Your Stamp</h3>
-
-                <p>
-                    Your finished stamp is prepared according to the
-                    approved design.
-                </p>
-
+                <p>Your finished stamp is prepared to the approved design.</p>
             </div>
-
         </div>
 
     </div>
-
 </section>
 
 
 <!-- =========================================================
      CTA
 ========================================================= -->
-
 <section class="stamp-cta">
-
     <div class="container-wide stamp-cta-inner stamp-reveal">
-
         <div>
-
-            <span class="stamp-eyebrow">
-                READY TO MAKE YOUR MARK?
-            </span>
-
+            <span class="stamp-eyebrow">READY TO MAKE YOUR MARK?</span>
             <h2>
                 Tell us what
                 <em>you need.</em>
             </h2>
-
             <p>
                 Send your stamp wording, logo or requirement.
                 We will help you choose the right option.
             </p>
-
         </div>
-
-        <a href="{% url 'contact' %}"
-           class="stamp-btn stamp-btn-white">
+        <a href="{% url 'contact' %}" class="stamp-btn stamp-btn-white">
             Request a Stamp →
         </a>
-
     </div>
-
 </section>
 
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'store/js/rubber_stamps.js' %}" defer></script>
 {% endblock %}

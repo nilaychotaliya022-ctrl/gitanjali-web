@@ -1,8 +1,7 @@
 /* =========================================================
    GITANJALI RUBBER STAMP PAGE
-   COMPLETE FIXED STYLESHEET
+   Redesign with images + animations
 ========================================================= */
-
 
 /* =========================================================
    GLOBAL
@@ -13,9 +12,7 @@
     background: #ffffff;
 }
 
-.stamp-intro {
-    overflow: hidden;
-}
+.stamp-intro { overflow: hidden; }
 
 .stamp-section-heading {
     display: flex;
@@ -24,46 +21,36 @@
     gap: 50px;
     margin-bottom: 55px;
 }
-
-.stamp-section-heading > div {
-    max-width: 620px;
-}
-
+.stamp-section-heading > div { max-width: 620px; }
 .stamp-section-heading > p {
     max-width: 440px;
     margin: 0;
-    color: #687386;
+    color: var(--muted);
     line-height: 1.8;
 }
-
 .stamp-section-heading.centered {
     display: block;
     text-align: center;
 }
-
-.stamp-section-heading.centered > div {
-    margin: auto;
-}
-
+.stamp-section-heading.centered > div { margin: auto; }
 .stamp-section-heading.centered > h2 {
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .stamp-section-heading h2 {
     margin: 18px 0 0;
-    color: #102744;
+    color: var(--ink);
     font-size: clamp(38px, 5vw, 58px);
     line-height: 1.05;
-    letter-spacing: -0.045em;
+    letter-spacing: -.045em;
 }
-
 .stamp-section-heading h2 em {
-    color: #087bb8;
+    color: var(--blue);
+    font-family: var(--serif);
     font-style: normal;
+    font-weight: 600;
 }
-
 
 /* =========================================================
    EYEBROW
@@ -73,27 +60,18 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: 0.18em;
-
+    letter-spacing: .18em;
     color: #9fd0ff;
 }
-
 .stamp-eyebrow::before {
     content: "";
-
     width: 28px;
     height: 2px;
-
     background: currentColor;
 }
-
-.stamp-eyebrow.dark {
-    color: #1769d2;
-}
-
+.stamp-eyebrow.dark { color: var(--blue); }
 
 /* =========================================================
    HERO
@@ -101,205 +79,97 @@
 
 .stamp-hero {
     position: relative;
-
     width: 100%;
     min-height: 570px;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
     isolation: isolate;
-
     box-sizing: border-box;
-
     background:
-        radial-gradient(
-            circle at 84% 18%,
-            rgba(255, 210, 70, 0.15),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 95% 72%,
-            rgba(23, 126, 199, 0.14),
-            transparent 32%
-        ),
-        linear-gradient(
-            135deg,
-            #f9fcff 0%,
-            #eef8fc 48%,
-            #e4f3fa 100%
-        );
-
+        radial-gradient(circle at 84% 18%, rgba(244,181,47,.15), transparent 25%),
+        radial-gradient(circle at 95% 72%, rgba(8,112,173,.14), transparent 32%),
+        linear-gradient(135deg, #f9fcff 0%, #eef8fc 48%, #e4f3fa 100%);
     border-bottom: 1px solid #dceaf2;
 }
 
-
-/* =========================================================
-   HERO DECORATIVE CIRCLES
-========================================================= */
-
 .stamp-hero::before {
     content: "";
-
     position: absolute;
-
-    width: 700px;
-    height: 700px;
-
-    right: -330px;
-    top: -340px;
-
-    border: 1px solid rgba(23, 126, 199, 0.10);
+    width: 700px; height: 700px;
+    right: -330px; top: -340px;
+    border: 1px solid rgba(8,112,173,.10);
     border-radius: 50%;
-
     animation: stampRotate 35s linear infinite;
-
     pointer-events: none;
 }
-
 .stamp-hero::after {
     content: "";
-
     position: absolute;
-
-    width: 480px;
-    height: 480px;
-
-    right: -140px;
-    top: -180px;
-
-    border: 1px solid rgba(23, 126, 199, 0.08);
+    width: 480px; height: 480px;
+    right: -140px; top: -180px;
+    border: 1px solid rgba(8,112,173,.08);
     border-radius: 50%;
-
     pointer-events: none;
 }
-
 .stamp-hero-glow {
     position: absolute;
-
-    width: 420px;
-    height: 420px;
-
-    right: 14%;
-    bottom: -280px;
-
-    background: rgba(42, 157, 214, 0.14);
-
+    width: 420px; height: 420px;
+    right: 14%; bottom: -280px;
+    background: rgba(42,157,214,.14);
     filter: blur(75px);
-
     border-radius: 50%;
-
     pointer-events: none;
 }
-
-
-/* =========================================================
-   HERO INNER
-========================================================= */
 
 .stamp-hero-inner {
     position: relative;
     z-index: 5;
-
     width: 100%;
     max-width: 1380px;
-
     margin: 0 auto;
-
     padding: 52px 40px;
-
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 1fr);
-
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-
     gap: 45px;
-
     box-sizing: border-box;
 }
-
-
-/* =========================================================
-   HERO LEFT CONTENT
-========================================================= */
 
 .stamp-hero-content {
     position: relative;
     z-index: 10;
-
     width: 100%;
     max-width: 650px;
-
     min-width: 0;
 }
-
-.stamp-hero .stamp-eyebrow {
-    color: #1382bc;
-}
-
-
-/* =========================================================
-   HERO TITLE
-========================================================= */
+.stamp-hero .stamp-eyebrow { color: var(--blue); }
 
 .stamp-hero h1 {
     max-width: 650px;
-
     margin: 18px 0 20px;
-
-    color: #142642;
-
+    color: var(--ink);
     font-size: clamp(48px, 5vw, 72px);
-
-    line-height: 0.98;
-
-    letter-spacing: -0.055em;
-
+    line-height: .98;
+    letter-spacing: -.055em;
     font-weight: 800;
-
-    overflow-wrap: normal;
 }
-
-.stamp-hero h1 span {
-    display: block;
-    color: #087fba;
-}
-
-
-/* =========================================================
-   HERO DESCRIPTION
-========================================================= */
+.stamp-hero h1 span { display: block; color: var(--blue); }
 
 .stamp-hero-content > p {
     max-width: 590px;
-
     margin: 0;
-
     color: #637a90;
-
     font-size: 15px;
-
     line-height: 1.75;
 }
-
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
 
 .stamp-hero-actions {
     display: flex;
     flex-wrap: wrap;
-
     gap: 12px;
-
     margin-top: 28px;
 }
-
 
 /* =========================================================
    BUTTONS
@@ -307,181 +177,101 @@
 
 .stamp-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
-
     gap: 9px;
-
     min-height: 48px;
-
     padding: 0 18px;
-
     border-radius: 9px;
-
     text-decoration: none !important;
-
     font-weight: 800;
-
     box-sizing: border-box;
-
-    transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        background 0.22s ease,
-        color 0.22s ease,
-        border-color 0.22s ease;
+    transition: transform .22s ease, box-shadow .22s ease,
+                background .22s ease, color .22s ease, border-color .22s ease;
+    position: relative;
+    overflow: hidden;
 }
-
-.stamp-btn span {
-    line-height: 1;
-}
-
 .stamp-btn:focus-visible {
-    outline: 3px solid rgba(8, 123, 184, 0.22);
+    outline: 3px solid rgba(8,123,184,.22);
     outline-offset: 3px;
 }
-
-
-/* PRIMARY */
-
 .stamp-btn-primary {
-    color: #ffffff !important;
-
-    background: #087bb8;
-
-    border: 1px solid #087bb8;
-
-    box-shadow:
-        0 10px 22px rgba(8, 123, 184, 0.20);
+    color: #fff !important;
+    background: var(--blue);
+    border: 1px solid var(--blue);
+    box-shadow: 0 10px 22px rgba(8,123,184,.20);
 }
-
 .stamp-btn-primary:hover {
-    color: #ffffff !important;
-
     background: #076da4;
-
     transform: translateY(-3px);
-
-    box-shadow:
-        0 15px 30px rgba(8, 123, 184, 0.24);
+    box-shadow: 0 15px 30px rgba(8,123,184,.24);
 }
-
-
-/* OUTLINE */
-
 .stamp-btn-outline {
-    color: #17304f !important;
-
-    background: rgba(255, 255, 255, 0.78);
-
+    color: var(--ink) !important;
+    background: rgba(255,255,255,.78);
     border: 1px solid #cbdde9;
 }
-
 .stamp-btn-outline:hover {
-    color: #087bb8 !important;
-
-    background: #ffffff;
-
+    color: var(--blue) !important;
+    background: #fff;
     border-color: #9fc9df;
-
     transform: translateY(-3px);
 }
-
-
-/* LIGHT */
-
 .stamp-btn-light {
     margin-top: 25px;
-
     color: #0755aa !important;
-
-    background: #ffffff;
-
+    background: #fff;
     border: 1px solid #d5e6ef;
-
-    box-shadow:
-        0 8px 22px rgba(20, 80, 120, 0.08);
+    box-shadow: 0 8px 22px rgba(20,80,120,.08);
 }
-
 .stamp-btn-light:hover {
-    color: #087bb8 !important;
-
-    background: #ffffff;
-
+    color: var(--blue) !important;
     border-color: #9fc9df;
-
     transform: translateY(-3px);
-
-    box-shadow:
-        0 14px 30px rgba(20, 80, 120, 0.13);
+    box-shadow: 0 14px 30px rgba(20,80,120,.13);
 }
-
-
-/* WHITE */
-
 .stamp-btn-white {
     flex-shrink: 0;
-
     color: #0755aa !important;
-
-    background: #ffffff;
-
-    border: 1px solid #ffffff;
+    background: #fff;
+    border: 1px solid #fff;
 }
-
 .stamp-btn-white:hover {
-    color: #087bb8 !important;
-
+    color: var(--blue) !important;
     transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
 }
-
 
 /* =========================================================
-   HERO TRUST ROW
+   HERO TRUST ROW + COUNTERS
 ========================================================= */
 
 .stamp-trust-row {
     display: flex;
     align-items: flex-start;
-
     gap: 38px;
-
     margin-top: 34px;
 }
-
 .stamp-trust-row div {
     display: flex;
     flex-direction: column;
-
     gap: 5px;
 }
-
 .stamp-trust-row strong {
     color: #153252;
-
     font-size: 17px;
-
     line-height: 1;
+    font-variant-numeric: tabular-nums;
 }
-
+.stamp-trust-row strong::after { content: "+"; color: var(--blue); }
 .stamp-trust-row span {
     color: #7b8da0;
-
     font-size: 9px;
-
     font-weight: 800;
-
-    letter-spacing: 0.08em;
-
+    letter-spacing: .08em;
     text-transform: uppercase;
-
     white-space: nowrap;
 }
-
 
 /* =========================================================
    HERO VISUAL
@@ -489,350 +279,190 @@
 
 .stamp-hero-visual {
     position: relative;
-
     width: 100%;
     height: 455px;
-
     display: flex;
-
     align-items: center;
     justify-content: center;
-
     min-width: 0;
-
     isolation: isolate;
+    transition: transform .3s ease;
+    will-change: transform;
 }
-
-
-/* =========================================================
-   BACK PAPER
-========================================================= */
 
 .stamp-paper {
     position: absolute;
-
-    width: 295px;
-    height: 180px;
-
+    width: 295px; height: 180px;
     padding: 22px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: flex-end;
-
     gap: 7px;
-
     border: 1px solid #d6e7ef;
-
     border-radius: 13px;
-
-    background: rgba(255, 255, 255, 0.92);
-
-    box-shadow:
-        0 25px 60px rgba(42, 92, 125, 0.10);
-
+    background: rgba(255,255,255,.92);
+    box-shadow: 0 25px 60px rgba(42,92,125,.10);
     color: #7a91a3;
-
     box-sizing: border-box;
 }
-
 .stamp-paper span {
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.14em;
+    font-size: 8px; font-weight: 800; letter-spacing: .14em;
 }
-
 .stamp-paper strong {
-    color: #167db3;
-
-    font-size: 23px;
-
-    letter-spacing: -0.03em;
+    color: #167db3; font-size: 23px; letter-spacing: -.03em;
 }
-
-.stamp-paper small {
-    font-size: 8px;
-
-    letter-spacing: 0.12em;
-}
-
-.paper-back {
-    right: 6%;
-    top: 13%;
-
-    transform: rotate(-6deg);
-
-    z-index: 1;
-}
-
-.paper-middle {
-    right: 10%;
-    top: 21%;
-
-    transform: rotate(4deg);
-
-    z-index: 2;
-}
-
-
-/* =========================================================
-   MAIN SHOWCASE CARD
-========================================================= */
+.stamp-paper small { font-size: 8px; letter-spacing: .12em; }
+.paper-back { right: 6%; top: 13%; transform: rotate(-6deg); z-index: 1; }
+.paper-middle { right: 10%; top: 21%; transform: rotate(4deg); z-index: 2; }
 
 .stamp-showcase-card {
     position: relative;
-
     z-index: 4;
-
-    width: 285px;
-    height: 335px;
-
+    width: 285px; height: 335px;
     padding: 22px;
-
     border: 1px solid #d8e6ed;
-
     border-radius: 18px;
-
-    background: rgba(255, 255, 255, 0.98);
-
+    background: rgba(255,255,255,.98);
     color: #18304e;
-
-    box-shadow:
-        0 35px 75px rgba(42, 92, 125, 0.17);
-
+    box-shadow: 0 35px 75px rgba(42,92,125,.17);
     transform: rotate(3deg);
-
-    animation:
-        stampFloat 5s ease-in-out infinite;
-
+    animation: stampFloat 5s ease-in-out infinite;
     box-sizing: border-box;
 }
-
-
-/* =========================================================
-   SHOWCASE TOP
-========================================================= */
 
 .showcase-top {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     font-size: 8px;
-
     font-weight: 900;
-
-    letter-spacing: 0.14em;
+    letter-spacing: .14em;
 }
-
-
-/* =========================================================
-   STAMP CIRCLE
-========================================================= */
 
 .stamp-circle {
     position: relative;
-
-    width: 190px;
-    height: 190px;
-
+    width: 190px; height: 190px;
     margin: 32px auto 0;
-
     border: 3px solid #1182bc;
-
     border-radius: 50%;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
     justify-content: center;
-
     gap: 5px;
-
     color: #1182bc;
-
     background: #fbfeff;
-
     box-sizing: border-box;
+    cursor: pointer;
 }
-
 .stamp-circle::before {
     content: "";
-
     position: absolute;
-
     inset: 10px;
-
     border: 1px dashed #9ec9de;
-
     border-radius: 50%;
 }
-
 .stamp-circle strong {
     position: relative;
-
     font-size: 29px;
-
-    letter-spacing: 0.04em;
+    letter-spacing: .04em;
 }
-
 .stamp-circle span {
     position: relative;
-
     font-size: 7px;
-
-    letter-spacing: 0.18em;
-
+    letter-spacing: .18em;
     font-weight: 800;
 }
-
-
-/* =========================================================
-   SHOWCASE BOTTOM
-========================================================= */
 
 .showcase-bottom {
     display: flex;
-
     justify-content: center;
-
     margin-top: 25px;
-
     color: #6e8498;
-
     font-size: 7px;
-
     font-weight: 900;
-
-    letter-spacing: 0.14em;
+    letter-spacing: .14em;
 }
-
-
-/* =========================================================
-   FLOATING STAMP CIRCLES
-========================================================= */
 
 .floating-stamp {
     position: absolute;
-
     z-index: 7;
-
-    width: 78px;
-    height: 78px;
-
+    width: 78px; height: 78px;
     border: 1px solid #d7e7ef;
-
     border-radius: 50%;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
-    background: #ffffff;
-
+    background: #fff;
     color: #0a7bb5;
-
-    box-shadow:
-        0 16px 35px rgba(42, 92, 125, 0.15);
-
-    animation:
-        stampFloatSmall 4s ease-in-out infinite;
+    box-shadow: 0 16px 35px rgba(42,92,125,.15);
+    animation: stampFloatSmall 4s ease-in-out infinite;
 }
-
-.floating-stamp strong {
-    font-size: 10px;
-
-    letter-spacing: 0.08em;
-}
-
+.floating-stamp strong { font-size: 10px; letter-spacing: .08em; }
 .floating-stamp span {
-    font-size: 7px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.12em;
+    font-size: 7px; font-weight: 800; letter-spacing: .12em;
 }
-
-.floating-one {
-    left: 2%;
-    top: 18%;
-}
-
-.floating-two {
-    right: 0%;
-    bottom: 11%;
-
-    animation-delay: 1s;
-}
-
-
-/* =========================================================
-   HERO FEATURE BADGE
-========================================================= */
+.floating-one { left: 2%; top: 18%; }
+.floating-two { right: 0%; bottom: 11%; animation-delay: 1s; }
 
 .stamp-feature-badge {
     position: absolute;
-
     z-index: 8;
-
-    right: 1%;
-    top: 5%;
-
+    right: 1%; top: 5%;
     display: flex;
-
     align-items: center;
-
     gap: 8px;
-
     padding: 11px 15px;
-
     border: 1px solid #d7e7ef;
-
     border-radius: 10px;
-
-    background: rgba(255, 255, 255, 0.96);
-
-    box-shadow:
-        0 14px 32px rgba(42, 92, 125, 0.10);
-
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 14px 32px rgba(42,92,125,.10);
     color: #4f657a;
-
     font-size: 7px;
-
     font-weight: 800;
-
-    letter-spacing: 0.08em;
-
+    letter-spacing: .08em;
     white-space: nowrap;
 }
-
 .badge-dot {
-    width: 7px;
-    height: 7px;
-
+    width: 7px; height: 7px;
     flex-shrink: 0;
-
     border-radius: 50%;
-
-    background: #f4b728;
-
-    box-shadow:
-        0 0 0 5px rgba(244, 183, 40, 0.10);
+    background: var(--gold);
+    box-shadow: 0 0 0 5px rgba(244,183,40,.10);
+    animation: badgePulse 2s ease-in-out infinite;
 }
 
+/* =========================================================
+   TICKER MARQUEE
+========================================================= */
+
+.stamp-ticker {
+    background: var(--ink);
+    color: rgba(255,255,255,.85);
+    overflow: hidden;
+    padding: 14px 0;
+    border-top: 1px solid rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.stamp-ticker-track {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    width: max-content;
+    animation: stampMarquee 32s linear infinite;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .2em;
+    font-weight: 500;
+}
+.stamp-ticker-track i {
+    color: var(--gold);
+    font-style: normal;
+    font-size: 8px;
+}
+.stamp-ticker:hover .stamp-ticker-track { animation-play-state: paused; }
 
 /* =========================================================
    PRODUCT GRID
@@ -840,253 +470,267 @@
 
 .stamp-products {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
-    gap: 18px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
 }
 
 .stamp-card {
     position: relative;
-
     min-width: 0;
-
-    min-height: 350px;
-
-    padding: 30px;
-
+    display: flex;
+    flex-direction: column;
     border: 1px solid #e7edf5;
-
-    border-radius: 16px;
-
-    background: #ffffff;
-
+    border-radius: 18px;
+    background: #fff;
     overflow: hidden;
-
     box-sizing: border-box;
-
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
 }
-
 .stamp-card::before {
     content: "";
-
     position: absolute;
-
-    left: 0;
-    top: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #0b63ce,
-            #64b2ff
-        );
-
+    left: 0; top: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--blue), #64b2ff);
     transform: scaleX(0);
-
     transform-origin: left;
-
-    transition: transform 0.35s ease;
+    transition: transform .35s ease;
+    z-index: 3;
 }
-
 .stamp-card:hover {
     transform: translateY(-9px);
-
     border-color: #bcd8f5;
-
-    box-shadow:
-        0 22px 50px rgba(16, 68, 125, 0.12);
+    box-shadow: 0 22px 50px rgba(16,68,125,.12);
 }
-
-.stamp-card:hover::before {
-    transform: scaleX(1);
-}
+.stamp-card:hover::before { transform: scaleX(1); }
 
 .stamp-card-featured {
-    background:
-        linear-gradient(
-            145deg,
-            #f6fbff,
-            #ffffff
-        );
+    background: linear-gradient(145deg, #f6fbff, #fff);
+}
+.stamp-card-dark {
+    color: #fff;
+    background: linear-gradient(145deg, #071d3c, #0c4e98);
+    border-color: transparent;
 }
 
-.stamp-card-dark {
-    color: #ffffff;
-
-    background:
-        linear-gradient(
-            145deg,
-            #071d3c,
-            #0c4e98
-        );
-
-    border-color: transparent;
+/* Media / Image area */
+.stamp-card-media {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #eaf3fb, #dbe9f5);
+}
+.stamp-card-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.stamp-card:hover .stamp-card-media img {
+    transform: scale(1.08) rotate(-.5deg);
+}
+.stamp-card-media::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(5,20,40,.35) 100%);
+    pointer-events: none;
+}
+.stamp-card-media img.img-fallback {
+    opacity: 0;
+}
+.stamp-card-media:has(img.img-fallback)::before {
+    content: "IMG";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #eaf3fb, #cfe4f3);
+    color: var(--blue);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .3em;
 }
 
 .stamp-card-number {
     position: absolute;
-
-    top: 24px;
-    right: 27px;
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    color: #a8b5c6;
-}
-
-.stamp-card-dark .stamp-card-number {
-    color: #77a9db;
-}
-
-.stamp-card-icon {
-    width: 58px;
-    height: 58px;
-
-    margin-bottom: 28px;
-
-    display: flex;
-
+    top: 14px; right: 14px;
+    z-index: 2;
+    min-width: 34px; height: 34px;
+    padding: 0 10px;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 13px;
-
-    background: #edf6ff;
-
-    color: #0965cf;
-
-    font-size: 19px;
-
+    border-radius: 10px;
+    background: rgba(255,255,255,.92);
+    color: var(--ink);
+    font-size: 11px;
     font-weight: 900;
+    letter-spacing: .05em;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(10,35,72,.12);
+}
+.stamp-card-flag {
+    position: absolute;
+    top: 14px; left: 14px;
+    z-index: 2;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    box-shadow: 0 6px 18px rgba(196,140,20,.25);
 }
 
-.professional-icon {
-    background: #dceeff;
+.stamp-card-media-dark {
+    background:
+        radial-gradient(circle at 30% 20%, rgba(100,178,255,.18), transparent 55%),
+        linear-gradient(135deg, #0a3060, #0c4e98);
+}
+.stamp-card-media-dark::after { display: none; }
+
+/* ---------------------------------------------------------
+   Card 9 — video background (replaces the "+" icon)
+--------------------------------------------------------- */
+.stamp-card-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 0;
+    opacity: .9;
+    transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .35s ease;
+    background: #0a3060; /* fallback while loading */
+}
+.stamp-card-dark:hover .stamp-card-video {
+    transform: scale(1.06);
+    opacity: 1;
 }
 
-.seal-icon {
+/* Keep the number badge above the video */
+.stamp-card-media-dark .stamp-card-number {
+    z-index: 2;
+}
+
+/* Optional: soft dark scrim so the "09" badge stays readable */
+.stamp-card-media-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        180deg,
+        rgba(7,29,60,.15) 0%,
+        rgba(7,29,60,0) 40%,
+        rgba(7,29,60,.35) 100%
+    );
+    pointer-events: none;
+}
+
+/* Reduced motion — pause the video, keep poster */
+@media (prefers-reduced-motion: reduce) {
+    .stamp-card-video {
+        animation: none !important;
+        transition: none !important;
+    }
+    .stamp-card-dark:hover .stamp-card-video {
+        transform: none;
+    }
+}
+
+.stamp-card-sound {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.4);
     border-radius: 50%;
+    background: rgba(7,29,60,.55);
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: background .2s ease, transform .2s ease;
 }
-
-.logo-icon {
-    background: #e7f3ff;
+.stamp-card-sound:hover {
+    background: rgba(7,29,60,.85);
+    transform: scale(1.08);
 }
+.stamp-card-sound .sound-on { display: none; }
+.stamp-card-video.is-unmuted ~ .stamp-card-sound .sound-on { display: inline; }
+.stamp-card-video.is-unmuted ~ .stamp-card-sound .sound-off { display: none; }
 
-.more-icon {
-    font-size: 27px;
+/* Body */
+.stamp-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px 26px 0;
 }
-
-.stamp-card-dark .stamp-card-icon {
-    background: rgba(255,255,255,0.12);
-
-    color: #ffffff;
-}
-
 .stamp-card-category {
     display: block;
-
-    margin-bottom: 11px;
-
+    margin-bottom: 10px;
     color: #2374c9;
-
     font-size: 9px;
-
     font-weight: 900;
-
-    letter-spacing: 0.15em;
+    letter-spacing: .15em;
 }
-
-.stamp-card-dark .stamp-card-category {
-    color: #86c3ff;
-}
+.stamp-card-dark .stamp-card-category { color: #86c3ff; }
 
 .stamp-card h3 {
-    margin: 0 0 13px;
-
-    color: #102744;
-
+    margin: 0 0 12px;
+    color: var(--ink);
     font-size: 22px;
-
     line-height: 1.2;
+    letter-spacing: -.025em;
 }
-
-.stamp-card-dark h3 {
-    color: #ffffff;
-}
+.stamp-card-dark h3 { color: #fff; }
 
 .stamp-card p {
     margin: 0;
-
     color: #6b7789;
-
     font-size: 14px;
-
-    line-height: 1.75;
-
+    line-height: 1.7;
     overflow-wrap: anywhere;
 }
-
-.stamp-card-dark p {
-    color: #c5d9ef;
-}
+.stamp-card-dark p { color: #c5d9ef; }
 
 .stamp-card-footer {
-    position: absolute;
-
-    bottom: 25px;
-
-    left: 30px;
-    right: 30px;
-
-    padding-top: 17px;
-
-    border-top: 1px solid #e9eef4;
-
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     gap: 14px;
+    margin-top: auto;
+    padding: 18px 26px 22px;
+    border-top: 1px solid #e9eef4;
 }
-
-.stamp-card-dark .stamp-card-footer {
-    border-color: rgba(255,255,255,0.14);
-}
-
-.stamp-card-footer span {
-    color: #8793a4;
-
-    font-size: 11px;
-}
-
+.stamp-card-dark .stamp-card-footer { border-color: rgba(255,255,255,.14); }
+.stamp-card-footer span { color: #8793a4; font-size: 11px; }
+.stamp-card-dark .stamp-card-footer span { color: #9eb7d4; }
 .stamp-card-footer a {
     color: #0965cf !important;
-
     font-size: 12px;
-
     font-weight: 800;
-
     text-decoration: none !important;
-
     white-space: nowrap;
+    transition: transform .25s ease, color .25s ease;
+    display: inline-block;
 }
-
-.stamp-card-dark .stamp-card-footer a {
-    color: #ffffff !important;
+.stamp-card:hover .stamp-card-footer a {
+    transform: translateX(4px);
 }
-
+.stamp-card-dark .stamp-card-footer a { color: #fff !important; }
 
 /* =========================================================
    PROFESSIONAL SECTION
@@ -1094,137 +738,68 @@
 
 .professional-stamp-section {
     padding: 105px 0;
-
-    color: #102744;
-
+    color: var(--ink);
     background:
-        radial-gradient(
-            circle at 85% 15%,
-            rgba(70,166,235,0.14),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 15% 85%,
-            rgba(8,123,184,0.06),
-            transparent 32%
-        ),
-        linear-gradient(
-            135deg,
-            #f8fcff 0%,
-            #eef8fc 50%,
-            #e5f3f9 100%
-        );
-
+        radial-gradient(circle at 85% 15%, rgba(70,166,235,.14), transparent 30%),
+        radial-gradient(circle at 15% 85%, rgba(8,123,184,.06), transparent 32%),
+        linear-gradient(135deg, #f8fcff 0%, #eef8fc 50%, #e5f3f9 100%);
     border-top: 1px solid #dceaf2;
-
     border-bottom: 1px solid #dceaf2;
-
     overflow: hidden;
 }
-
 .professional-stamp-grid {
     display: grid;
-
-    grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 0.85fr);
-
+    grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
     gap: 80px;
-
     align-items: center;
 }
-
-.professional-copy {
-    min-width: 0;
-}
-
-.professional-copy .stamp-eyebrow {
-    color: #1682bd;
-}
-
+.professional-copy { min-width: 0; }
+.professional-copy .stamp-eyebrow { color: #1682bd; }
 .professional-copy h2 {
     max-width: 650px;
-
     margin: 20px 0;
-
-    color: #102744;
-
+    color: var(--ink);
     font-size: clamp(38px, 5vw, 62px);
-
     line-height: 1.05;
-
-    letter-spacing: -0.04em;
-
+    letter-spacing: -.04em;
     overflow-wrap: anywhere;
 }
-
 .professional-copy h2 em {
-    color: #087bb8;
-
+    color: var(--blue);
+    font-family: var(--serif);
     font-style: normal;
+    font-weight: 600;
 }
-
 .professional-copy p {
     max-width: 610px;
-
     color: #657b91;
-
     line-height: 1.85;
 }
 
-
-/* =========================================================
-   PROFESSIONAL POINTS
-========================================================= */
-
 .professional-point {
     display: flex;
-
     gap: 25px;
-
     padding: 25px 0;
-
     border-bottom: 1px solid #d4e4ec;
-
-    transition:
-        padding-left 0.25s ease,
-        border-color 0.25s ease;
+    transition: padding-left .25s ease, border-color .25s ease;
 }
-
-.professional-point:first-child {
-    border-top: 1px solid #d4e4ec;
-}
-
+.professional-point:first-child { border-top: 1px solid #d4e4ec; }
 .professional-point:hover {
     padding-left: 8px;
-
     border-color: #b8d8e8;
 }
-
-.professional-point > strong {
-    font-size: 13px;
-
-    color: #1769d2;
-}
-
+.professional-point > strong { font-size: 13px; color: #1769d2; }
 .professional-point h3 {
     margin: 0 0 7px;
-
-    color: #102744;
-
+    color: var(--ink);
     font-size: 18px;
 }
-
 .professional-point p {
     margin: 0;
-
     color: #718094;
-
     font-size: 13px;
-
     line-height: 1.6;
 }
-
 
 /* =========================================================
    PROCESS
@@ -1232,64 +807,38 @@
 
 .stamp-process {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, minmax(0, 1fr));
-
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
 }
-
 .process-step {
     min-width: 0;
-
     padding: 30px;
-
     border-radius: 14px;
-
     background: #f6f9fd;
-
     border: 1px solid #e7edf5;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
-
+    transition: transform .3s ease, box-shadow .3s ease;
     box-sizing: border-box;
 }
-
 .process-step:hover {
     transform: translateY(-6px);
-
-    box-shadow:
-        0 20px 45px rgba(22,69,120,0.1);
+    box-shadow: 0 20px 45px rgba(22,69,120,.1);
 }
-
 .process-step > span {
     color: #1769d2;
-
     font-size: 12px;
-
     font-weight: 900;
 }
-
 .process-step h3 {
     margin: 35px 0 10px;
-
-    color: #102744;
-
+    color: var(--ink);
     font-size: 18px;
 }
-
 .process-step p {
     margin: 0;
-
     color: #718094;
-
     font-size: 13px;
-
     line-height: 1.7;
 }
-
 
 /* =========================================================
    CTA
@@ -1297,64 +846,37 @@
 
 .stamp-cta {
     padding: 80px 0;
-
     background: #f0f7ff;
-
     overflow: hidden;
 }
-
 .stamp-cta-inner {
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
     gap: 50px;
-
     padding: 55px 65px;
-
     border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0755aa,
-            #0d79e8
-        );
-
-    color: #ffffff;
-
-    box-shadow:
-        0 25px 60px rgba(12,82,159,0.2);
-
+    background: linear-gradient(135deg, #0755aa, #0d79e8);
+    color: #fff;
+    box-shadow: 0 25px 60px rgba(12,82,159,.2);
     box-sizing: border-box;
 }
-
 .stamp-cta h2 {
     margin: 15px 0 10px;
-
     font-size: clamp(36px, 4vw, 52px);
-
     line-height: 1;
-
-    overflow-wrap: anywhere;
 }
-
 .stamp-cta h2 em {
     color: #8dcbff;
-
+    font-family: var(--serif);
     font-style: normal;
+    font-weight: 600;
 }
-
 .stamp-cta p {
     margin: 0;
-
     color: #d4e7fb;
-
     line-height: 1.7;
 }
-
 
 /* =========================================================
    REVEAL ANIMATION
@@ -1362,512 +884,196 @@
 
 .stamp-reveal {
     opacity: 0;
-
     transform: translateY(35px);
-
-    animation:
-        stampReveal 0.8s ease forwards;
+    transition: opacity .8s ease, transform .8s ease;
+    will-change: opacity, transform;
 }
-
-.delay-1 {
-    animation-delay: 0.12s;
+.stamp-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
-
-.delay-2 {
-    animation-delay: 0.24s;
-}
-
-.delay-3 {
-    animation-delay: 0.36s;
-}
-
-@keyframes stampReveal {
-
-    to {
-        opacity: 1;
-
-        transform: translateY(0);
-    }
-}
-
+.delay-1 { transition-delay: .12s; }
+.delay-2 { transition-delay: .24s; }
+.delay-3 { transition-delay: .36s; }
 
 /* =========================================================
-   FLOAT ANIMATION
+   KEYFRAMES
 ========================================================= */
 
+@keyframes stampReveal {
+    to { opacity: 1; transform: translateY(0); }
+}
 @keyframes stampFloat {
-
-    0%,
-    100% {
-        transform:
-            translateY(0)
-            rotate(3deg);
-    }
-
-    50% {
-        transform:
-            translateY(-10px)
-            rotate(3deg);
-    }
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50%      { transform: translateY(-10px) rotate(3deg); }
 }
-
 @keyframes stampFloatSmall {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
 }
-
 @keyframes stampRotate {
-
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
-
+@keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 0 5px rgba(244,183,40,.10); }
+    50%      { box-shadow: 0 0 0 8px rgba(244,183,40,.18); }
+}
+@keyframes stampMarquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+@keyframes stampPress {
+    0%   { transform: scale(1); }
+    40%  { transform: scale(.9); }
+    60%  { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+.stamp-circle.pressing {
+    animation: stampPress .6s ease;
+}
 
 /* =========================================================
-   LAPTOP — 1200px
+   RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1200px) {
-
     .stamp-hero-inner {
-
-        grid-template-columns:
-            minmax(0, 0.95fr)
-            minmax(0, 1.05fr);
-
+        grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
         gap: 25px;
-
         padding-left: 30px;
         padding-right: 30px;
     }
-
-    .stamp-hero h1 {
-        font-size:
-            clamp(44px, 5vw, 62px);
-    }
-
-    .stamp-hero-visual {
-        height: 420px;
-    }
-
-    .stamp-showcase-card {
-        width: 270px;
-        height: 320px;
-    }
-
-    .stamp-circle {
-        width: 180px;
-        height: 180px;
-    }
-
-    .stamp-paper {
-        width: 275px;
-    }
-
-    .floating-one {
-        left: 0;
-    }
-
-    .floating-two {
-        right: 0;
-    }
-
-    .professional-stamp-grid {
-        gap: 45px;
-    }
+    .stamp-hero-visual { height: 420px; }
+    .stamp-showcase-card { width: 270px; height: 320px; }
+    .stamp-circle { width: 180px; height: 180px; }
+    .stamp-paper { width: 275px; }
+    .floating-one { left: 0; }
+    .floating-two { right: 0; }
+    .professional-stamp-grid { gap: 45px; }
+    .stamp-card-media { height: 190px; }
 }
 
-
-/* =========================================================
-   TABLET — 900px
-========================================================= */
-
 @media (max-width: 900px) {
-
-    .stamp-hero {
-
-        min-height: auto;
-    }
-
+    .stamp-hero { min-height: auto; }
     .stamp-hero-inner {
-
         grid-template-columns: 1fr;
-
         gap: 20px;
-
         padding-top: 65px;
         padding-bottom: 60px;
     }
-
-    .stamp-hero-content {
-
-        max-width: 720px;
-    }
-
+    .stamp-hero-content { max-width: 720px; }
     .stamp-hero h1 {
-
         max-width: 650px;
-
-        font-size:
-            clamp(48px, 8vw, 68px);
+        font-size: clamp(48px, 8vw, 68px);
     }
-
     .stamp-hero-visual {
-
         width: min(100%, 620px);
-
         height: 430px;
-
         margin: 0 auto;
     }
-
-    .stamp-section-heading {
-
-        align-items: flex-start;
-    }
-
-    .stamp-process {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .professional-stamp-grid {
-
-        grid-template-columns: 1fr;
-
-        gap: 45px;
-    }
-
-    .stamp-products {
-
-        grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
+    .stamp-section-heading { align-items: flex-start; }
+    .stamp-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .professional-stamp-grid { grid-template-columns: 1fr; gap: 45px; }
+    .stamp-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-
-/* =========================================================
-   MOBILE — 640px
-========================================================= */
-
 @media (max-width: 640px) {
-
-    .stamp-section {
-
-        padding: 70px 0;
-    }
-
-    .stamp-hero {
-
-        padding: 0;
-    }
-
+    .stamp-section { padding: 70px 0; }
+    .stamp-hero { padding: 0; }
     .stamp-hero-inner {
-
         padding-left: 20px;
         padding-right: 20px;
-
         padding-top: 50px;
         padding-bottom: 45px;
     }
-
     .stamp-hero h1 {
-
         margin-top: 14px;
-
-        font-size:
-            clamp(40px, 13vw, 56px);
-
-        line-height: 0.98;
+        font-size: clamp(40px, 13vw, 56px);
+        line-height: .98;
     }
-
-    .stamp-hero-content > p {
-
-        font-size: 14px;
-
-        line-height: 1.7;
-    }
-
-    .stamp-hero-actions {
-
-        width: 100%;
-
-        flex-direction: column;
-    }
-
-    .stamp-hero-actions .stamp-btn {
-
-        width: 100%;
-    }
-
+    .stamp-hero-content > p { font-size: 14px; line-height: 1.7; }
+    .stamp-hero-actions { width: 100%; flex-direction: column; }
+    .stamp-hero-actions .stamp-btn { width: 100%; }
     .stamp-trust-row {
-
         display: grid;
-
-        grid-template-columns:
-            repeat(3, minmax(0, 1fr));
-
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 12px;
-
         margin-top: 28px;
     }
-
     .stamp-trust-row span {
-
         white-space: normal;
-
         font-size: 8px;
-
         line-height: 1.35;
     }
-
     .stamp-hero-visual {
-
         width: 100%;
-
         height: 345px;
-
         margin-top: 10px;
     }
-
     .stamp-showcase-card {
-
-        width: 235px;
-        height: 285px;
-
+        width: 235px; height: 285px;
         padding: 18px;
-
-        transform: rotate(2deg);
     }
-
     .stamp-circle {
-
-        width: 165px;
-        height: 165px;
-
+        width: 165px; height: 165px;
         margin-top: 25px;
     }
-
-    .stamp-circle strong {
-
-        font-size: 25px;
-    }
-
-    .stamp-paper {
-
-        width: 220px;
-        height: 150px;
-
-        padding: 17px;
-    }
-
-    .paper-back {
-
-        right: 1%;
-        top: 12%;
-    }
-
-    .paper-middle {
-
-        right: 4%;
-        top: 19%;
-    }
-
-    .floating-stamp {
-
-        width: 64px;
-        height: 64px;
-    }
-
-    .floating-one {
-
-        left: 0;
-        top: 16%;
-    }
-
-    .floating-two {
-
-        right: 0;
-        bottom: 8%;
-    }
-
+    .stamp-circle strong { font-size: 25px; }
+    .stamp-paper { width: 220px; height: 150px; padding: 17px; }
+    .paper-back { right: 1%; top: 12%; }
+    .paper-middle { right: 4%; top: 19%; }
+    .floating-stamp { width: 64px; height: 64px; }
+    .floating-one { left: 0; top: 16%; }
+    .floating-two { right: 0; bottom: 8%; }
     .stamp-feature-badge {
-
-        right: 0;
-        top: 1%;
-
+        right: 0; top: 1%;
         max-width: 175px;
-
         padding: 9px 10px;
-
         font-size: 6px;
     }
-
-    .stamp-section-heading {
-
-        display: block;
-
-        margin-bottom: 38px;
-    }
-
-    .stamp-section-heading > p {
-
-        margin-top: 20px;
-    }
-
-    .stamp-section-heading h2 {
-
-        font-size:
-            clamp(36px, 11vw, 52px);
-    }
-
-    .stamp-products {
-
-        grid-template-columns: 1fr;
-    }
-
-    .stamp-card {
-
-        min-height: 0;
-
-        padding-bottom: 90px;
-    }
-
-    .professional-stamp-section {
-
-        padding: 70px 0;
-    }
-
-    .professional-stamp-grid {
-
-        gap: 40px;
-    }
-
-    .professional-copy h2 {
-
-        font-size:
-            clamp(38px, 12vw, 54px);
-    }
-
-    .professional-point {
-
-        gap: 15px;
-
-        padding: 18px 0;
-    }
-
-    .stamp-process {
-
-        grid-template-columns: 1fr;
-    }
-
-    .stamp-cta {
-
-        padding: 55px 0;
-    }
-
-    .stamp-cta-inner {
-
-        display: block;
-
-        padding: 32px 22px;
-    }
-
-    .stamp-btn-white {
-
-        margin-top: 30px;
-    }
+    .stamp-section-heading { display: block; margin-bottom: 38px; }
+    .stamp-section-heading > p { margin-top: 20px; }
+    .stamp-section-heading h2 { font-size: clamp(36px, 11vw, 52px); }
+    .stamp-products { grid-template-columns: 1fr; }
+    .stamp-card-media { height: 230px; }
+    .professional-stamp-section { padding: 70px 0; }
+    .professional-stamp-grid { gap: 40px; }
+    .professional-copy h2 { font-size: clamp(38px, 12vw, 54px); }
+    .professional-point { gap: 15px; padding: 18px 0; }
+    .stamp-process { grid-template-columns: 1fr; }
+    .stamp-cta { padding: 55px 0; }
+    .stamp-cta-inner { display: block; padding: 32px 22px; }
+    .stamp-btn-white { margin-top: 30px; }
+    .stamp-ticker { padding: 11px 0; }
+    .stamp-ticker-track { font-size: 10px; gap: 22px; }
 }
-
-
-/* =========================================================
-   VERY SMALL MOBILE — 400px
-========================================================= */
 
 @media (max-width: 400px) {
-
-    .stamp-hero-inner {
-
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .stamp-hero h1 {
-
-        font-size: 39px;
-    }
-
-    .stamp-hero-visual {
-
-        height: 315px;
-    }
-
-    .stamp-showcase-card {
-
-        width: 210px;
-        height: 270px;
-    }
-
-    .stamp-circle {
-
-        width: 150px;
-        height: 150px;
-    }
-
-    .stamp-paper {
-
-        width: 200px;
-    }
-
-    .floating-stamp {
-
-        width: 58px;
-        height: 58px;
-    }
-
-    .floating-one {
-
-        left: 0;
-    }
-
-    .floating-two {
-
-        right: 0;
-    }
-
-    .stamp-feature-badge {
-
-        max-width: 155px;
-    }
+    .stamp-hero-inner { padding-left: 15px; padding-right: 15px; }
+    .stamp-hero h1 { font-size: 39px; }
+    .stamp-hero-visual { height: 315px; }
+    .stamp-showcase-card { width: 210px; height: 270px; }
+    .stamp-circle { width: 150px; height: 150px; }
+    .stamp-paper { width: 200px; }
+    .floating-stamp { width: 58px; height: 58px; }
+    .stamp-feature-badge { max-width: 155px; }
 }
-
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
     .stamp-hero::before,
     .stamp-showcase-card,
     .floating-stamp,
+    .badge-dot,
+    .stamp-ticker-track,
+    .stamp-circle.pressing,
     .stamp-reveal {
-
         animation: none !important;
-
         transition: none !important;
     }
+    .stamp-reveal { opacity: 1 !important; transform: none !important; }
 }
