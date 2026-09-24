@@ -1,0 +1,60 @@
+GITANJALI WEBSITE - FIXED RESPONSIVE VERSION
+==============================================
+
+This package contains the responsive website and the database migration fix.
+
+FIRST RUN (recommended)
+-----------------------
+1. Extract this ZIP.
+2. Open the extracted "gitanjali-web" folder.
+3. Double-click SETUP_AND_RUN.bat.
+4. Wait for the setup to finish.
+5. Open http://127.0.0.1:8000/
+
+The batch file uses your normal per-user Python 3.11 installation:
+%LocalAppData%\Programs\Python\Python311\python.exe
+
+It will:
+- install/update requirements
+- create the SQLite database tables with "manage.py migrate"
+- load product data with "manage.py seed_products"
+- run "manage.py check"
+- start the Django server
+
+IMPORTANT
+---------
+Do NOT delete db.sqlite3 unless you are sure you do not need its data.
+
+If you already have a database from another copy of the project, copy that
+database into this project's folder BEFORE running the server, then run:
+
+python manage.py migrate
+
+If /about/ or /products/ says "no such table: store_review" or
+"no such table: store_product", run:
+
+python manage.py migrate
+
+If Django says "No migrations to apply" but the tables are still missing,
+stop and send the output of:
+
+python manage.py showmigrations store
+python manage.py migrate
+
+Do not delete the database until the existing data has been checked.
+
+MANUAL COMMANDS
+---------------
+cd /d "D:\chrome downloads\New folder\gitanjali-web-fixed-final\gitanjali-web"
+
+"%LocalAppData%\Programs\Python\Python311\python.exe" -m pip install -r requirements.txt
+"%LocalAppData%\Programs\Python\Python311\python.exe" manage.py migrate
+"%LocalAppData%\Programs\Python\Python311\python.exe" manage.py seed_products
+"%LocalAppData%\Programs\Python\Python311\python.exe" manage.py check
+"%LocalAppData%\Programs\Python\Python311\python.exe" manage.py runserver
+
+GIT
+---
+This ZIP does not include the .git directory.
+If you want to replace/update your GitHub clone, copy the project files into
+your existing clone and then use git status, git add ., git commit, and git push.
