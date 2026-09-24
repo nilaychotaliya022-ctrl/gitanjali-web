@@ -95,19 +95,17 @@ class Command(BaseCommand):
             )
 
             # Try to attach the image from static folder if it exists and hasn't been attached yet
-            if not prod.image and p.get("image"):
-                candidate_paths = [
-                    Path(settings.BASE_DIR) / "static" / "store" / "images" / p["image"],
-                    Path(settings.BASE_DIR) / "static_collected" / "store" / "images" / p["image"],
-                    Path(settings.BASE_DIR) / "store" / "static" / "store" / "images" / p["image"],
-                ]
-                found_path = next((path for path in candidate_paths if path.exists()), None)
-                if found_path:
-                    with found_path.open("rb") as f:
-                        prod.image.save(found_path.name, File(f), save=True)
-                    self.stdout.write(f"  ↳ Attached image {found_path.name}")
+            if not prod.image:
+                static_path = (
+                    Path(settings.BASE_DIR)
+                    / "store" / "static" / "store" / "images" / p["image"]
+                )
+                if static_path.exists():
+                    with static_path.open("rb") as f:
+                        prod.image.save(static_path.name, File(f), save=True)
+                    self.stdout.write(f"  ↳ Attached image {static_path.name}")
                 else:
-                    self.stdout.write(f"  ↳ (no file found for {p['image']})")
+                    self.stdout.write(f"  ↳ (no file found at {static_path})")
 
             self.stdout.write(f"{'Created' if created else 'Updated'} product: {prod}")
 

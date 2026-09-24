@@ -3,6 +3,5 @@ __pycache__/
 *.sqlite3
 .venv/
 staticfiles/
-static_collected/
 media/
 .env
